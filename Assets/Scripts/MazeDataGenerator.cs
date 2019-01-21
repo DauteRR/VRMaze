@@ -1,13 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Class which contains the maze construction logic
+ */
 public class MazeDataGenerator {
-    public float placementThreshold;
+    
+    /* Value needed for the maze creation */
+    public float placementThreshold = .1f;
 
-    public MazeDataGenerator() {
-        placementThreshold = .1f;
-    }
-
+    /*
+     * Creates a maze with the given dimensions
+     * @param sizeRows Height of the maze
+     * @param sizeCols Width of the maze
+     * @return Maze data
+     */
     public int[,] FromDimensions(int sizeRows, int sizeCols) {
         int[,] maze = new int[sizeRows, sizeCols];
         int maxRows = maze.GetUpperBound(0);

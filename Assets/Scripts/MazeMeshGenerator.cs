@@ -1,16 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Class which contains the maze visual construction logic
+ */
 public class MazeMeshGenerator {
-    // generator params
-    public float width;     // how wide are hallways
-    public float height;    // how tall are hallways
+    /* How wide are hallways */
+    public float width = 3f;
+    /* How tall are hallways */
+    public float height = 3f;
 
-    public MazeMeshGenerator() {
-        width = 3.75f;
-        height = 3.5f;
-    }
-
+    /*
+     * Constructs and returns the maze mesh
+     * @param data Maze data
+     * @return Maze mesh
+     */
     public Mesh FromData(int[,] data) {
         Mesh maze = new Mesh();
 
@@ -36,11 +40,13 @@ public class MazeMeshGenerator {
                     ), ref newVertices, ref newUVs, ref floorTriangles);
 
                     // ceiling
+                    /*
                     AddQuad(Matrix4x4.TRS(
                         new Vector3(j * width, height, i * width),
                         Quaternion.LookRotation(Vector3.down),
                         new Vector3(width, width, 1)
                     ), ref newVertices, ref newUVs, ref floorTriangles);
+                    */
 
                     // walls on sides next to blocked grid cells
                     if (i - 1 < 0 || data[i - 1, j] == 1) {
@@ -89,6 +95,13 @@ public class MazeMeshGenerator {
         return maze;
     }
 
+    /*
+     * Constructs and adds a quad to the mesh
+     * @param transformationMatrix Transformation matrix
+     * @param newVertices List of mesh vertices
+     * @param newUVs List of mesh UVs
+     * @param newTriangles List of mesh triangles
+     */
     private void AddQuad(Matrix4x4 transformationMatrix, ref List<Vector3> newVertices,
         ref List<Vector2> newUVs, ref List<int> newTriangles) {
         int index = newVertices.Count;
