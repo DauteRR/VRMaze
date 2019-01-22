@@ -1,6 +1,18 @@
 ﻿using UnityEngine;
 
 /*
+ * Enumeration of the possible states of a maze location
+ */
+public enum MazeLocation {
+    FREE,
+    WALL,
+    PLAYER_SPAWN,
+    ENEMY_SPAWN,
+    OBJECT_SPAWN,
+    FINAL_POINT
+}
+
+/*
  * Class which contains the funcionalities needed
  * to control the maze construction.
  */
@@ -13,11 +25,9 @@ public class MazeConstructor : MonoBehaviour {
     /* Walls material */
     [SerializeField] private Material mazeMat2;
     /* 
-     * Maze data, matrix containing:
-     *  0 -> free position
-     *  1 -> occupied position
+     * Maze data
      */
-    public int[,] data {
+    public MazeLocation[,] mazeData {
         get; private set;
     }
     /* Maze data generator */
@@ -28,7 +38,7 @@ public class MazeConstructor : MonoBehaviour {
     /*
      * Method to initialize maze data and mesh generator
      */
-    void Awake() {
+    private void Awake() {
         dataGenerator = new MazeDataGenerator();
         meshGenerator = new MazeMeshGenerator();
     }
@@ -43,8 +53,11 @@ public class MazeConstructor : MonoBehaviour {
             Debug.LogError("Odd numbers work better for dungeon size.");
         }
 
-        data = dataGenerator.FromDimensions(rows, columns);
+        mazeData = dataGenerator.FromDimensions(rows, columns);
         DisplayMaze();
+    }
+
+    private void OnGUI() {
         if (showDebug)
             ShowDebug();
     }
@@ -53,8 +66,8 @@ public class MazeConstructor : MonoBehaviour {
      * Method to visualize the maze as a string,
      * for debugging purposes
      */
-    void ShowDebug() {
-        int[,] maze = data;
+    private void ShowDebug() {
+        MazeLocation[,] maze = mazeData;
         int rMax = maze.GetUpperBound(0);
         int cMax = maze.GetUpperBound(1);
 
@@ -82,7 +95,7 @@ public class MazeConstructor : MonoBehaviour {
         gameObject.tag = "GeneratedMesh";
 
         MeshFilter meshFilter = gameObject.AddComponent<MeshFilter>();
-        meshFilter.mesh = meshGenerator.FromData(data);
+        meshFilter.mesh = meshGenerator.FromData(mazeData);
 
         MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
         meshCollider.sharedMesh = meshFilter.mesh;

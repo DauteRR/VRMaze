@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1382372540}
-  m_IndirectSpecularColor: {r: 0.43308148, g: 0.5156866, b: 0.61179215, a: 1}
+  m_IndirectSpecularColor: {r: 0.4359359, g: 0.51840484, b: 0.6136633, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 606864620}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 606864617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 1, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1603937511}
@@ -639,6 +639,14 @@ PrefabInstance:
       propertyPath: worldProbe
       value: 
       objectReference: {fileID: 672001098}
+    - target: {fileID: 11458038, guid: 45b02d4b5dab3cf4091552cf46762d30, type: 3}
+      propertyPath: maxIntensity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458038, guid: 45b02d4b5dab3cf4091552cf46762d30, type: 3}
+      propertyPath: skySpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11485488, guid: 45b02d4b5dab3cf4091552cf46762d30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 45b02d4b5dab3cf4091552cf46762d30, type: 3}
@@ -889,6 +897,7 @@ GameObject:
   - component: {fileID: 2075298345}
   - component: {fileID: 2075298344}
   - component: {fileID: 2075298343}
+  - component: {fileID: 2075298346}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -908,8 +917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec4e99db07e06b4bb25d180981021d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeRows: 15
-  mazeColumns: 15
 --- !u!114 &2075298344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,6 +946,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2075298346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075298342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e617cbb6bd9f74cb49c66bf5abcaee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2089805194
 PrefabInstance:
   m_ObjectHideFlags: 0
