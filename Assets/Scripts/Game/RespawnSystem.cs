@@ -45,6 +45,10 @@ public class RespawnSystem : MonoBehaviour
     public float minWaitForEnemyRespawn;
     /* Maximum amount of time to see a new enemy respawning */
     public float maxWaitForEnemyRespawn;
+    /* Maximum amount of instantiated enemies */
+    public float maxEnemies;
+    /* Instantiated enemies */
+    private List<GameObject> instantiatedEnemies;
 
     /*
      * Method to "initialize" respawn system. A copy of
@@ -57,6 +61,7 @@ public class RespawnSystem : MonoBehaviour
         isInitialized = true;
         rows = maze.GetLength(0);
         columns = maze.GetLength(1);
+        instantiatedEnemies = new List<GameObject>();
 
         freePositions = new List<Position>();
         for (int i = 1; i < rows; i++) {
@@ -66,7 +71,7 @@ public class RespawnSystem : MonoBehaviour
                 }
             }
         }
-        amountOfEnemyRespawns = (int)(freePositions.Count * 0.1f);
+        amountOfEnemyRespawns = (int)(freePositions.Count * 0.05f);
     }
 
     /*
@@ -122,20 +127,20 @@ public class RespawnSystem : MonoBehaviour
      */
     private IEnumerator RespawnEnemy(List<Vector3> respawnPositions) {
         while (true) {
-            /*
             yield return new WaitForSeconds(
                 Random.Range(
                     minWaitForEnemyRespawn,
                     maxWaitForEnemyRespawn
                 )
             );
-            */
-            Instantiate(
-                enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)], 
-                respawnPositions[Random.Range(0, respawnPositions.Count)], 
-                Quaternion.identity
-            );
-            yield return new WaitForSeconds(123123122311231);
+            if (instantiatedEnemies.Count < maxEnemies) {
+                instantiatedEnemies.Add(Instantiate(
+                    enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)],
+                    respawnPositions[Random.Range(0, respawnPositions.Count)],
+                    Quaternion.identity
+                ));
+            }
+            
         }
     }
 

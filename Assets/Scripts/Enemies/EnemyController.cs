@@ -28,12 +28,12 @@ public class EnemyController : MonoBehaviour {
     /* State of the enemy */
     private EnemyState currentState;
     /* Distance for stopping the agent when reachs its destination*/
-    private const float DISTANCE_EPSILON = 1f;
-
+    private const float DISTANCE_EPSILON = 1.5f;
+    /* Maximum distance for the wandering */
     private float wanderRadius = 25;
-
+    /* Amount of time for idle state after wandering */
     private float idleTime = 3;
-
+    /* Timestamp after the enemy stops walking */
     private float stopTimeStamp;
 
     /*
@@ -45,24 +45,31 @@ public class EnemyController : MonoBehaviour {
         visionSystem = GetComponent<VisionSystem>();
         hearingSystem = GetComponent<HearingSystem>();
         currentState = EnemyState.IDLE;
+        //agent.height = 0.5f;
+        agent.baseOffset = 0;
+
 
         if (visionSystem != null) {
             StartCoroutine(visionSystem.FindTargets());
         }
     }
 
-
     /*
      * 
      */
     private void Update() {
         CheckTargetDetection();
-        Debug.Log(agent.velocity);
         if (!agent.isStopped && Vector3.Distance(agent.destination, agent.transform.position) < DISTANCE_EPSILON) {
             stopTimeStamp = Time.time;
             agent.isStopped = true;
             agent.velocity = Vector3.zero;
+
             OnStateChange(EnemyState.IDLE);
+
+            if ((visionSystem != null && visionSystem.IsTargetInFOV()) ||
+                (hearingSystem != null && hearingSystem.targetDetected)) {
+                OnStateChange(EnemyState.ATTACKING);
+            }
         }
         if (agent.isStopped && Time.time - stopTimeStamp > idleTime) {
             Wander();
@@ -70,6 +77,9 @@ public class EnemyController : MonoBehaviour {
     }
 
 
+    /*
+     * Orders the enemy to wander through the maze
+     */
     void Wander() {
         Vector3 nextPosition = Random.insideUnitSphere * wanderRadius;
         nextPosition.y = 0;
@@ -93,6 +103,10 @@ public class EnemyController : MonoBehaviour {
      * if so, the enemy follow the player by the navigation mesh
      */
     private void CheckTargetDetection() {
+
+        if (currentState == EnemyState.ATTACKING)
+            return;
+
         // Vision system checking
         if (visionSystem != null &&
             visionSystem.IsTargetInFOV()

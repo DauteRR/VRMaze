@@ -16,9 +16,9 @@ public class GameController : MonoBehaviour {
     private RespawnSystem respawnSystem;
 
     /* Height of the maze */
-    public static int mazeRows = 15;
+    public int mazeRows = 15;
     /* Width of the maze */
-    public static int mazeColumns = 15;
+    public int mazeColumns = 15;
 
     /**
      * Method which invokes maze constructor generation method.

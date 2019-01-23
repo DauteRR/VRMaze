@@ -6,7 +6,7 @@ using UnityEngine;
  */
 public class MazeMeshGenerator {
     /* How wide are hallways */
-    public static float width = 3f;
+    public static float width = 4f;
     /* How tall are hallways */
     public static float height = 3f;
 

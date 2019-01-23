@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1382372540}
-  m_IndirectSpecularColor: {r: 0.4938612, g: 0.5707777, b: 0.6447491, a: 1}
+  m_IndirectSpecularColor: {r: 0.43195644, g: 0.5146112, b: 0.6110481, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -108,7 +108,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec4e99db07e06b4bb25d180981021d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mazeRows: 15
+  mazeColumns: 15
 --- !u!114 &2075298344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +199,7 @@ MonoBehaviour:
   - {fileID: 6825835521686445945, guid: 74fa09408b247054ba18943248161055, type: 3}
   minWaitForEnemyRespawn: 2
   maxWaitForEnemyRespawn: 5
+  maxEnemies: 1
 --- !u!114 &2075298348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +226,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.26666668
+  m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &4342527441750555936
@@ -241,7 +244,7 @@ PrefabInstance:
     - target: {fileID: 4342527440905410271, guid: d478c033439901848b3f4da982d6611e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4342527440905408800, guid: d478c033439901848b3f4da982d6611e,
         type: 3}
@@ -304,6 +307,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1232494458252440345, guid: 092e0f23676bf854fbb0fef24f13a6e0,
         type: 3}
+    - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
+        type: 3}
+      propertyPath: skySpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d478c033439901848b3f4da982d6611e, type: 3}
 --- !u!1001 &7113803700610710198
