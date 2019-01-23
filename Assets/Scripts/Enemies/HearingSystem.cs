@@ -8,8 +8,10 @@ using UnityEngine;
 public class HearingSystem : MonoBehaviour
 {
     /* Tells if the enemy is hearing a noise */
+    [HideInInspector]
     public bool targetDetected;
     /* Noise origin */
+    [HideInInspector]
     public Vector3 noisePosition;
 
     /*

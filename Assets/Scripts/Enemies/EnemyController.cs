@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,12 +28,18 @@ public class EnemyController : MonoBehaviour {
     /* State of the enemy */
     private EnemyState currentState;
     /* Distance for stopping the agent when reachs its destination*/
-    private const float DISTANCE_EPSILON = 2f;
+    private const float DISTANCE_EPSILON = 1f;
+
+    private float wanderRadius = 25;
+
+    private float idleTime = 3;
+
+    private float stopTimeStamp;
 
     /*
      * Initialization method
      */
-    private void Start() {
+    private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         animatorController = GetComponent<Animator>();
         visionSystem = GetComponent<VisionSystem>();
@@ -46,19 +51,33 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+
     /*
      * 
      */
     private void Update() {
         CheckTargetDetection();
-
-        if (Vector3.Distance(agent.destination, agent.transform.position) < DISTANCE_EPSILON) {
+        Debug.Log(agent.velocity);
+        if (!agent.isStopped && Vector3.Distance(agent.destination, agent.transform.position) < DISTANCE_EPSILON) {
+            stopTimeStamp = Time.time;
             agent.isStopped = true;
             agent.velocity = Vector3.zero;
-            if (currentState != EnemyState.IDLE)
-                OnStateChange(EnemyState.IDLE);
+            OnStateChange(EnemyState.IDLE);
+        }
+        if (agent.isStopped && Time.time - stopTimeStamp > idleTime) {
+            Wander();
         }
     }
+
+
+    void Wander() {
+        Vector3 nextPosition = Random.insideUnitSphere * wanderRadius;
+        nextPosition.y = 0;
+        agent.SetDestination(agent.transform.position + nextPosition);
+        agent.isStopped = false;
+        OnStateChange(EnemyState.WALKING);
+    }
+
 
     /*
      * Changes the state of the enemy and its animation
@@ -76,24 +95,20 @@ public class EnemyController : MonoBehaviour {
     private void CheckTargetDetection() {
         // Vision system checking
         if (visionSystem != null &&
-            visionSystem.IsTargetInFOV() &&
-            agent.isStopped
+            visionSystem.IsTargetInFOV()
         ) {
             agent.SetDestination(visionSystem.visibleTargets[0].position);
             agent.isStopped = false;
-            if (currentState != EnemyState.WALKING)
-                OnStateChange(EnemyState.WALKING);
+            OnStateChange(EnemyState.WALKING);
         }
 
         // Hearing system checking
-        if (hearingSystem != null && 
-            hearingSystem.targetDetected &&
-            agent.isStopped
+        if (hearingSystem != null &&
+            hearingSystem.targetDetected
         ) {
             agent.SetDestination(hearingSystem.noisePosition);
             agent.isStopped = false;
-            if (currentState != EnemyState.WALKING)
-                OnStateChange(EnemyState.WALKING);
-        } 
+            OnStateChange(EnemyState.WALKING);
+        }
     }
 }

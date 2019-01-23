@@ -122,17 +122,20 @@ public class RespawnSystem : MonoBehaviour
      */
     private IEnumerator RespawnEnemy(List<Vector3> respawnPositions) {
         while (true) {
+            /*
             yield return new WaitForSeconds(
                 Random.Range(
                     minWaitForEnemyRespawn,
                     maxWaitForEnemyRespawn
                 )
             );
+            */
             Instantiate(
                 enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)], 
                 respawnPositions[Random.Range(0, respawnPositions.Count)], 
                 Quaternion.identity
             );
+            yield return new WaitForSeconds(123123122311231);
         }
     }
 
