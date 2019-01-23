@@ -31,44 +31,69 @@ public class EnemyController : MonoBehaviour {
     /* Distance for stopping the agent when reachs its destination*/
     private const float DISTANCE_EPSILON = 2f;
 
+    /*
+     * Initialization method
+     */
     private void Start() {
-        this.agent = GetComponent<NavMeshAgent>();
-        this.animatorController = GetComponent<Animator>();
-        this.visionSystem = GetComponent<VisionSystem>();
-        this.hearingSystem = GetComponent<HearingSystem>();
-        this.currentState = EnemyState.IDLE;
+        agent = GetComponent<NavMeshAgent>();
+        animatorController = GetComponent<Animator>();
+        visionSystem = GetComponent<VisionSystem>();
+        hearingSystem = GetComponent<HearingSystem>();
+        currentState = EnemyState.IDLE;
 
         if (visionSystem != null) {
-            StartCoroutine(this.visionSystem.FindTargets());
+            StartCoroutine(visionSystem.FindTargets());
         }
     }
 
+    /*
+     * 
+     */
     private void Update() {
         CheckTargetDetection();
 
-        if (Vector3.Distance(agent.destination, agent.transform.position) < DISTANCE_EPSILON)
+        if (Vector3.Distance(agent.destination, agent.transform.position) < DISTANCE_EPSILON) {
             agent.isStopped = true;
-        if (this.agent.isStopped && currentState != EnemyState.IDLE) {
-            OnStateChange(EnemyState.IDLE);
+            agent.velocity = Vector3.zero;
+            if (currentState != EnemyState.IDLE)
+                OnStateChange(EnemyState.IDLE);
         }
     }
 
+    /*
+     * Changes the state of the enemy and its animation
+     */
     private void OnStateChange(EnemyState newState) {
         animatorController.SetBool(currentState.ToString(), false);
         animatorController.SetBool(newState.ToString(), true);
-        this.currentState = newState;
+        currentState = newState;
     }
 
+    /*
+     * Method which establish if the enemy detects the player,
+     * if so, the enemy follow the player by the navigation mesh
+     */
     private void CheckTargetDetection() {
-
         // Vision system checking
         if (visionSystem != null &&
-            visionSystem.IsTargetInFOV()
+            visionSystem.IsTargetInFOV() &&
+            agent.isStopped
         ) {
             agent.SetDestination(visionSystem.visibleTargets[0].position);
             agent.isStopped = false;
             if (currentState != EnemyState.WALKING)
                 OnStateChange(EnemyState.WALKING);
         }
+
+        // Hearing system checking
+        if (hearingSystem != null && 
+            hearingSystem.targetDetected &&
+            agent.isStopped
+        ) {
+            agent.SetDestination(hearingSystem.noisePosition);
+            agent.isStopped = false;
+            if (currentState != EnemyState.WALKING)
+                OnStateChange(EnemyState.WALKING);
+        } 
     }
 }

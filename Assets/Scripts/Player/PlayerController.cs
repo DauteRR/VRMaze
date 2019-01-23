@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +15,20 @@ public class PlayerController : MonoBehaviour {
     private const float gravity = -9.8f;
     /* Character controller component */
     private CharacterController controller;
+    /* Lantern of the player */
+    private Light lantern;
+    /* Establish if the player is moving */
+    private bool isMoving;
+    /* Represents the noises of the player */
+    private SphereCollider noiseCollider;
 
     /*
-     * Method to retrieve the character controller component.
+     * Method to retrieve the character components.
      */
     void Start() {
         controller = GetComponent<CharacterController>();
+        noiseCollider = GetComponent<SphereCollider>();
+        lantern = GetComponentInChildren<Light>();
     }
 
     void Update() {
@@ -27,7 +36,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonUp("ToggleLantern")) {
             ToggleLantern();
         }
-
         PlayerMovement();
     }
 
@@ -36,6 +44,9 @@ public class PlayerController : MonoBehaviour {
      */
     void PlayerMovement() {
         Vector3 directions = new Vector3(Input.GetAxis("LeftJoystickHorizontal"), 0, Input.GetAxis("LeftJoystickVertical"));
+        isMoving = (directions != Vector3.zero);
+        noiseCollider.radius = (isMoving) ? 5 : 1;
+        noiseCollider.radius += (lantern.enabled) ? 1 : 0;
         Vector3 velocity = directions * movementSpeed;
         velocity = Camera.main.transform.TransformDirection(velocity);
         velocity.y += gravity;
@@ -46,7 +57,7 @@ public class PlayerController : MonoBehaviour {
      * Toggles the state of the lantern
      */
     void ToggleLantern() {
-        Light lantern = GetComponentInChildren<Light>();
         lantern.enabled = !lantern.enabled;
+        noiseCollider.radius = 2;
     }
 }

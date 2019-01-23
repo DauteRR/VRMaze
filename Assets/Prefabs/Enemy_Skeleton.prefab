@@ -30,6 +30,19 @@ CapsuleCollider:
   m_Height: 0.16
   m_Direction: 1
   m_Center: {x: 0, y: 0.08, z: 0.0022332892}
+--- !u!135 &547373713973699638
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825835521686445945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &1574313255
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -88,6 +101,20 @@ MonoBehaviour:
   visibleTargets: []
   fovOrigin: {x: 0, y: 0, z: 0}
   fovLevel: {x: 0, y: 1.25, z: 0}
+--- !u!114 &8170512124088591136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825835521686445945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd515cd267eee140b7fde59c2614b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDetected: 0
+  noisePosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &6825835521686411671
 PrefabInstance:
   m_ObjectHideFlags: 0

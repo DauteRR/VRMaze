@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1382372540}
-  m_IndirectSpecularColor: {r: 0.4817301, g: 0.560311, b: 0.6393546, a: 1}
+  m_IndirectSpecularColor: {r: 0.4938612, g: 0.5707777, b: 0.6447491, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,6 +238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DayNightCycle
       objectReference: {fileID: 0}
+    - target: {fileID: 4342527440905410271, guid: d478c033439901848b3f4da982d6611e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342527440905408800, guid: d478c033439901848b3f4da982d6611e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -312,6 +317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VRController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113803698732911350, guid: aa828d9dd12794f46abb911a07675b05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7113803698732911351, guid: aa828d9dd12794f46abb911a07675b05,
         type: 3}

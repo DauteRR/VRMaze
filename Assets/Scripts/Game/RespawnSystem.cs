@@ -53,20 +53,20 @@ public class RespawnSystem : MonoBehaviour
      * @param maze Maze data
      */
     public void InitilizeRespawnSystem(MazeLocation[,] maze) {
-        this.mazeData = maze;
-        this.isInitialized = true;
-        this.rows = maze.GetLength(0);
-        this.columns = maze.GetLength(1);
+        mazeData = maze;
+        isInitialized = true;
+        rows = maze.GetLength(0);
+        columns = maze.GetLength(1);
 
-        this.freePositions = new List<Position>();
+        freePositions = new List<Position>();
         for (int i = 1; i < rows; i++) {
             for (int j = 1; j < columns; ++j) {
-                if (this.mazeData[i, j] == MazeLocation.FREE) {
-                    this.freePositions.Add(new Position(i, j));
+                if (mazeData[i, j] == MazeLocation.FREE) {
+                    freePositions.Add(new Position(i, j));
                 }
             }
         }
-        this.amountOfEnemyRespawns = (int)(freePositions.Count * 0.1f);
+        amountOfEnemyRespawns = (int)(freePositions.Count * 0.1f);
     }
 
     /*
@@ -76,12 +76,12 @@ public class RespawnSystem : MonoBehaviour
      */
     private Position GenerateValidPosition(MazeLocation newMazeLocation) {
 
-        if (!this.isInitialized) {
+        if (!isInitialized) {
             throw new System.Exception("Respawn system not initialized");
         }
-        Position selectedPosition = this.freePositions[Random.Range(0, this.freePositions.Count)];
-        this.mazeData[selectedPosition.row, selectedPosition.column] = newMazeLocation;
-        this.freePositions.Remove(selectedPosition);
+        Position selectedPosition = freePositions[Random.Range(0, freePositions.Count)];
+        mazeData[selectedPosition.row, selectedPosition.column] = newMazeLocation;
+        freePositions.Remove(selectedPosition);
         return selectedPosition;
     }
 
@@ -106,7 +106,7 @@ public class RespawnSystem : MonoBehaviour
      */
     public void RespawnEnemies() {
         List<Vector3> respawnPositions = new List<Vector3>();
-        for (int i = 0; i < this.amountOfEnemyRespawns; ++i) {
+        for (int i = 0; i < amountOfEnemyRespawns; ++i) {
             Position position = GenerateValidPosition(MazeLocation.ENEMY_RESPAWN);
             respawnPositions.Add(new Vector3(
                 position.column * MazeMeshGenerator.width,
@@ -124,8 +124,8 @@ public class RespawnSystem : MonoBehaviour
         while (true) {
             yield return new WaitForSeconds(
                 Random.Range(
-                    this.minWaitForEnemyRespawn,
-                    this.maxWaitForEnemyRespawn
+                    minWaitForEnemyRespawn,
+                    maxWaitForEnemyRespawn
                 )
             );
             Instantiate(
