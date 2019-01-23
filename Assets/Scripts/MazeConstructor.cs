@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 /*
  * Enumeration of the possible states of a maze location
@@ -6,8 +7,8 @@
 public enum MazeLocation {
     FREE,
     WALL,
-    PLAYER_SPAWN,
-    ENEMY_SPAWN,
+    PLAYER_RESPAWN,
+    ENEMY_RESPAWN,
     OBJECT_SPAWN,
     FINAL_POINT
 }
@@ -88,20 +89,23 @@ public class MazeConstructor : MonoBehaviour {
     /*
      * Method to display the generated maze
      */
-    private void DisplayMaze() {
-        GameObject gameObject = new GameObject();
-        gameObject.transform.position = Vector3.zero;
-        gameObject.name = "Procedural Maze";
-        gameObject.tag = "GeneratedMesh";
+    public void DisplayMaze() {
+        GameObject mazeGameObject = new GameObject();
+        mazeGameObject.transform.position = Vector3.zero;
+        mazeGameObject.name = "Procedural Maze";
+        mazeGameObject.tag = "GeneratedMesh";
 
-        MeshFilter meshFilter = gameObject.AddComponent<MeshFilter>();
+        MeshFilter meshFilter = mazeGameObject.AddComponent<MeshFilter>();
         meshFilter.mesh = meshGenerator.FromData(mazeData);
 
-        MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
+        MeshCollider meshCollider = mazeGameObject.AddComponent<MeshCollider>();
         meshCollider.sharedMesh = meshFilter.mesh;
 
-        MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
+        MeshRenderer meshRenderer = mazeGameObject.AddComponent<MeshRenderer>();
         meshRenderer.materials = new Material[2] { mazeMat1, mazeMat2 };
+
+        // We assigne the "Maze" layer to the maze game object
+        mazeGameObject.layer = 10;
     }
 
 }

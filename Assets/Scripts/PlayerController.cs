@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
      * Toggles the state of the lantern
      */
     void ToggleLantern() {
-        Light lantern = GameObject.FindGameObjectWithTag("Lantern").GetComponent<Light>();
+        Light lantern = GetComponentInChildren<Light>();
         lantern.enabled = !lantern.enabled;
     }
 }

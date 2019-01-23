@@ -1,17 +1,19 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 /*
  * Controls the state of the game. 
  */
 [RequireComponent(typeof(MazeConstructor))]
-[RequireComponent(typeof(SpawnSystem))]
+[RequireComponent(typeof(RespawnSystem))]
+[RequireComponent(typeof(NavMeshSurface))]
 public class GameController : MonoBehaviour {
 
     /* Maze constructor */
     private MazeConstructor mazeConstructor;
-    /* Spawn system */
-    private SpawnSystem spawnSystem;
+    /* Respawn system */
+    private RespawnSystem respawnSystem;
 
     /* Height of the maze */
     public static int mazeRows = 15;
@@ -26,9 +28,18 @@ public class GameController : MonoBehaviour {
         mazeConstructor = GetComponent<MazeConstructor>();
         mazeConstructor.GenerateNewMaze(mazeRows, mazeColumns);
 
+        // Spawn system initialization
+        respawnSystem = GetComponent<RespawnSystem>();
+        respawnSystem.InitilizeRespawnSystem(mazeConstructor.mazeData);
+
+        // Maze nav mesh surface baking
+        NavMeshSurface mazeSurface = GetComponent<NavMeshSurface>();
+        mazeSurface.BuildNavMesh();
+
         // Player positioning
-        spawnSystem = GetComponent<SpawnSystem>();
-        spawnSystem.InitilizeSpawnSystem(mazeConstructor.mazeData);
-        GameObject.FindGameObjectWithTag("Player").transform.position = spawnSystem.GetPlayerSpawnPosition();
+        respawnSystem.RespawnPlayer();
+
+        // Enemy spawns
+        respawnSystem.RespawnEnemies();
     }
 }
