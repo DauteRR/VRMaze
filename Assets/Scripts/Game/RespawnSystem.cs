@@ -39,6 +39,8 @@ public class RespawnSystem : MonoBehaviour
     public GameObject playerPrefab;
     /* Enemies prefabs needed for the instantiate method during the respawn */
     public GameObject[] enemiesPrefabs;
+    /* Enemies respawn prefab needed for the instantiate method */
+    public GameObject enemiesRespawnPrefab;
     /* Final point prefab needed for the instantiate method */
     public GameObject finalPointPrefab;
     /* Quantity of respawn points for enemies */
@@ -120,6 +122,16 @@ public class RespawnSystem : MonoBehaviour
                 2f,
                 position.row * MazeMeshGenerator.width
             ));
+            Instantiate(
+                enemiesRespawnPrefab,
+                new Vector3(
+                    position.column * MazeMeshGenerator.width,
+                    0.01f,
+                    position.row * MazeMeshGenerator.width
+                ),
+                Quaternion.identity
+            );
+
         }
         StartCoroutine(RespawnEnemy(respawnPositions));
     }
@@ -145,6 +157,9 @@ public class RespawnSystem : MonoBehaviour
         }
     }
 
+    /*
+     * Establish the position of the maze final point
+     */
     public void SetFinalPoint() {
         Position finalPointPosition = GenerateValidPosition(MazeLocation.FINAL_POINT);
         Vector3 position = new Vector3(
