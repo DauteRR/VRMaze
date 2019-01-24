@@ -39,7 +39,10 @@ public class GameController : MonoBehaviour {
         // Player positioning
         respawnSystem.RespawnPlayer();
 
-        // Enemy spawns
+        // Enemy respawns
         respawnSystem.RespawnEnemies();
+
+        // Final point
+        respawnSystem.SetFinalPoint();
     }
 }

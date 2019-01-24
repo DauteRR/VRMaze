@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1382372540}
-  m_IndirectSpecularColor: {r: 0.43195644, g: 0.5146112, b: 0.6110481, a: 1}
+  m_IndirectSpecularColor: {r: 0.44065195, g: 0.5228839, b: 0.61667687, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -197,6 +197,8 @@ MonoBehaviour:
     type: 3}
   enemiesPrefabs:
   - {fileID: 6825835521686445945, guid: 74fa09408b247054ba18943248161055, type: 3}
+  finalPointPrefab: {fileID: 3576632409090646122, guid: 23fe17702370e5d48865a0f94604d3df,
+    type: 3}
   minWaitForEnemyRespawn: 2
   maxWaitForEnemyRespawn: 5
   maxEnemies: 1
@@ -310,7 +312,22 @@ PrefabInstance:
     - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
         type: 3}
       propertyPath: skySpeed
-      value: 0
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
+        type: 3}
+      propertyPath: maxIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
+        type: 3}
+      propertyPath: nightDayColor.ctime5
+      value: 55898
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
+        type: 3}
+      propertyPath: nightDayColor.ctime4
+      value: 44525
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d478c033439901848b3f4da982d6611e, type: 3}
