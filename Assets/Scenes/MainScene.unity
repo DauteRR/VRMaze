@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1382372540}
-  m_IndirectSpecularColor: {r: 0.4440345, g: 0.5260647, b: 0.61878157, a: 1}
+  m_IndirectSpecularColor: {r: 0.43195644, g: 0.5146112, b: 0.6110481, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -203,7 +203,7 @@ MonoBehaviour:
     type: 3}
   minWaitForEnemyRespawn: 2
   maxWaitForEnemyRespawn: 5
-  maxEnemies: 1
+  maxEnemies: 0
 --- !u!114 &2075298348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ PrefabInstance:
     - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
         type: 3}
       propertyPath: skySpeed
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4342527440727378033, guid: d478c033439901848b3f4da982d6611e,
         type: 3}
