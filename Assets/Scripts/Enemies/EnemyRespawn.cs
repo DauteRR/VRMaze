@@ -31,6 +31,7 @@ public class EnemyRespawn : MonoBehaviour
      * Callback to respond to an enemy death event
      */
     private void onEnemyDeath(GameObject enemy) {
+        instantiatedEnemies.Remove(enemy); 
         RespawnEnemyDelayed();
     }
 
