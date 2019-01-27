@@ -27,6 +27,7 @@ public class RespawnSystem : MonoBehaviour
 {
     /* Flag to indicate if the system is initialized */
     private bool isInitialized = false;
+
     /* Maze representation */
     private MazeLocation[,] mazeData;
     /* Height of the maze */
@@ -35,24 +36,22 @@ public class RespawnSystem : MonoBehaviour
     private int columns;
     /* Free positions of the maze */
     private List<Position> freePositions;
+
     /* Player prefab needed for the instantiate method during the respawn */
     public GameObject playerPrefab;
-    /* Enemies prefabs needed for the instantiate method during the respawn */
-    public GameObject[] enemiesPrefabs;
-    /* Enemies respawn prefab needed for the instantiate method */
-    public GameObject enemiesRespawnPrefab;
+    
     /* Final point prefab needed for the instantiate method */
     public GameObject finalPointPrefab;
+
+    /* Quantity of consumable locations */
+    public int amountOfConsumablesLocations;
+    /* Consumable location prefab needed for the instantiate method */
+    public GameObject consumableLocationPrefab;
+
     /* Quantity of respawn points for enemies */
-    private int amountOfEnemyRespawns;
-    /* Minimum amount of time to see a new enemy respawning */
-    public float minWaitForEnemyRespawn;
-    /* Maximum amount of time to see a new enemy respawning */
-    public float maxWaitForEnemyRespawn;
-    /* Maximum amount of instantiated enemies */
-    public float maxEnemies;
-    /* Instantiated enemies */
-    private List<GameObject> instantiatedEnemies;
+    public int amountOfEnemyRespawns;
+    /* Enemies respawn prefab needed for the instantiate method */
+    public GameObject enemyRespawnPrefab;
 
     /*
      * Method to "initialize" respawn system. A copy of
@@ -65,7 +64,6 @@ public class RespawnSystem : MonoBehaviour
         isInitialized = true;
         rows = maze.GetLength(0);
         columns = maze.GetLength(1);
-        instantiatedEnemies = new List<GameObject>();
 
         freePositions = new List<Position>();
         for (int i = 1; i < rows; i++) {
@@ -75,7 +73,6 @@ public class RespawnSystem : MonoBehaviour
                 }
             }
         }
-        amountOfEnemyRespawns = (int)(freePositions.Count * 0.05f);
     }
 
     /*
@@ -97,7 +94,7 @@ public class RespawnSystem : MonoBehaviour
     /*
      * Respawns the player in a valid position of the maze
      */
-    public void RespawnPlayer() {
+    public void SetPlayerRespawn() {
         Position respawnPosition = GenerateValidPosition(MazeLocation.PLAYER_RESPAWN);
         
         Vector3 position = new Vector3(
@@ -113,7 +110,7 @@ public class RespawnSystem : MonoBehaviour
      * Respawns the enemies in the maze, selects amountOfEnemyRespawns
      * positions as respawns and invokes a coroutine to respawn enemies
      */
-    public void RespawnEnemies() {
+    public void SetEnemyRespawnsPositions() {
         List<Vector3> respawnPositions = new List<Vector3>();
         for (int i = 0; i < amountOfEnemyRespawns; ++i) {
             Position position = GenerateValidPosition(MazeLocation.ENEMY_RESPAWN);
@@ -123,7 +120,7 @@ public class RespawnSystem : MonoBehaviour
                 position.row * MazeMeshGenerator.width
             ));
             Instantiate(
-                enemiesRespawnPrefab,
+                enemyRespawnPrefab,
                 new Vector3(
                     position.column * MazeMeshGenerator.width,
                     0.01f,
@@ -131,34 +128,12 @@ public class RespawnSystem : MonoBehaviour
                 ),
                 Quaternion.identity
             );
-
-        }
-        StartCoroutine(RespawnEnemy(respawnPositions));
-    }
-
-    /*
-     * Coroutine to respawn an enemy in one of the given respawn points
-     */
-    private IEnumerator RespawnEnemy(List<Vector3> respawnPositions) {
-        while (true) {
-            yield return new WaitForSeconds(
-                Random.Range(
-                    minWaitForEnemyRespawn,
-                    maxWaitForEnemyRespawn
-                )
-            );
-            if (instantiatedEnemies.Count < maxEnemies) {
-                instantiatedEnemies.Add(Instantiate(
-                    enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)],
-                    respawnPositions[Random.Range(0, respawnPositions.Count)],
-                    Quaternion.identity
-                ));
-            }
         }
     }
 
+
     /*
-     * Establish the position of the maze final point
+     * Establishes the position of the maze final point
      */
     public void SetFinalPoint() {
         Position finalPointPosition = GenerateValidPosition(MazeLocation.FINAL_POINT);
@@ -170,4 +145,28 @@ public class RespawnSystem : MonoBehaviour
         Instantiate(finalPointPrefab, position, Quaternion.identity);
     }
 
+    /*
+     * Establishes the positions of the consumable objects
+     */
+    public void SetConsumableLocations() {
+        List<Vector3> consumablePositions = new List<Vector3>();
+        for (int i = 0; i < amountOfConsumablesLocations; ++i) {
+            Position position = GenerateValidPosition(MazeLocation.CONSUMABLE_LOCATION);
+            consumablePositions.Add(new Vector3(
+                position.column * MazeMeshGenerator.width,
+                2f,
+                position.row * MazeMeshGenerator.width
+            ));
+            Instantiate(
+                consumableLocationPrefab,
+                new Vector3(
+                    position.column * MazeMeshGenerator.width,
+                    0.01f,
+                    position.row * MazeMeshGenerator.width
+                ),
+                Quaternion.identity
+            );
+
+        }
+    }
 }

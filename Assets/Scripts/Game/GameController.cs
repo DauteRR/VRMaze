@@ -38,12 +38,15 @@ public class GameController : MonoBehaviour {
         mazeSurface.BuildNavMesh();
 
         // Player positioning
-        respawnSystem.RespawnPlayer();
+        respawnSystem.SetPlayerRespawn();
 
         // Enemy respawns
-        respawnSystem.RespawnEnemies();
+        respawnSystem.SetEnemyRespawnsPositions();
 
         // Final point
         respawnSystem.SetFinalPoint();
+
+        // Consumables
+        respawnSystem.SetConsumableLocations();
     }
 }

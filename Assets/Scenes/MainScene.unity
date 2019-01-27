@@ -195,15 +195,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1232494458252440345, guid: 092e0f23676bf854fbb0fef24f13a6e0,
     type: 3}
-  enemiesPrefabs:
-  - {fileID: 6825835521686445945, guid: 74fa09408b247054ba18943248161055, type: 3}
-  enemiesRespawnPrefab: {fileID: 7156041363461437343, guid: 0cbf776a1f385da44ac24e38929d064b,
-    type: 3}
   finalPointPrefab: {fileID: 3576632409090646122, guid: 23fe17702370e5d48865a0f94604d3df,
     type: 3}
-  minWaitForEnemyRespawn: 2
-  maxWaitForEnemyRespawn: 5
-  maxEnemies: 0
+  amountOfConsumablesLocations: 5
+  consumableLocationPrefab: {fileID: 4963616972977274679, guid: d68cfc20f4b5c154d8c508b6bab92fb9,
+    type: 3}
+  amountOfEnemyRespawns: 1
+  enemyRespawnPrefab: {fileID: 7156041363461437343, guid: 0cbf776a1f385da44ac24e38929d064b,
+    type: 3}
 --- !u!114 &2075298348
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public enum MazeLocation {
     WALL,
     PLAYER_RESPAWN,
     ENEMY_RESPAWN,
-    OBJECT_SPAWN,
+    CONSUMABLE_LOCATION,
     FINAL_POINT
 }
 

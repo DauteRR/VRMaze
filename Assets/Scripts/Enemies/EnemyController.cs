@@ -9,7 +9,8 @@ using UnityEngine.AI;
 enum EnemyState {
     WALKING,
     IDLE,
-    ATTACKING
+    ATTACKING,
+    DEAD
 }
 
 /*
@@ -35,6 +36,13 @@ public class EnemyController : MonoBehaviour {
     private float idleTime = 3;
     /* Timestamp after the enemy stops walking */
     private float stopTimeStamp;
+    /* Health of the enemy */
+    [Range(0, 100)]
+    public int health = 100;
+
+    public delegate void EnemyDeathEventHandler(GameObject enemy);
+
+    event EnemyDeathEventHandler deathEvent;
 
     /*
      * Initialization method
@@ -45,9 +53,6 @@ public class EnemyController : MonoBehaviour {
         visionSystem = GetComponent<VisionSystem>();
         hearingSystem = GetComponent<HearingSystem>();
         currentState = EnemyState.IDLE;
-        //agent.height = 0.5f;
-        agent.baseOffset = 0;
-
 
         if (visionSystem != null) {
             StartCoroutine(visionSystem.FindTargets());
@@ -58,6 +63,11 @@ public class EnemyController : MonoBehaviour {
      * 
      */
     private void Update() {
+
+        CheckHealth();
+        if (currentState == EnemyState.DEAD)
+            return;
+
         CheckTargetDetection();
         if (!agent.isStopped && Vector3.Distance(agent.destination, agent.transform.position) < DISTANCE_EPSILON) {
             stopTimeStamp = Time.time;
@@ -74,13 +84,31 @@ public class EnemyController : MonoBehaviour {
         if (agent.isStopped && Time.time - stopTimeStamp > idleTime) {
             Wander();
         }
+
     }
 
+    /*
+     * Checks the health of the enemy, if it is less or equal
+     * to 0 the enemy state changes to DEAD
+     */
+    private void CheckHealth() {
+        if (health <= 0) {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+            OnStateChange(EnemyState.DEAD);
+            StartCoroutine(DestroyAfter(5));
+        }
+    }
+
+    private IEnumerator DestroyAfter(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
+    }
 
     /*
      * Orders the enemy to wander through the maze
      */
-    void Wander() {
+    private void Wander() {
         Vector3 nextPosition = Random.insideUnitSphere * wanderRadius;
         nextPosition.y = 0;
         agent.SetDestination(agent.transform.position + nextPosition);
