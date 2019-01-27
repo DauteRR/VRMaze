@@ -24,27 +24,41 @@ public class EnemyRespawn : MonoBehaviour
      */
     private void Start() {
         instantiatedEnemies = new List<GameObject>();
-        StartCoroutine(RespawnEnemy());
+        EnemyController.onEnemyDeath += onEnemyDeath;
     }
 
     /*
-     * Coroutine to respawn an enemy in one of the given respawn points
+     * Callback to respond to an enemy death event
      */
-    private IEnumerator RespawnEnemy() {
-        while (true) {
-            yield return new WaitForSeconds(
-                Random.Range(
-                    minWaitForRespawnEnemy,
-                    maxWaitForRespawnEnemy
-                )
-            );
-            if (instantiatedEnemies.Count < maxEnemies) {
-                instantiatedEnemies.Add(Instantiate(
-                    enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)],
-                    gameObject.transform.position,
-                    Quaternion.identity
-                ));
-            }
+    private void onEnemyDeath(GameObject enemy) {
+        RespawnEnemyDelayed();
+    }
+
+    /*
+     * Respawns an enemy after a random period of time
+     */
+    private void RespawnEnemyDelayed() {
+        var timeToWait = Random.Range(
+            minWaitForRespawnEnemy,
+            maxWaitForRespawnEnemy
+        );
+        Invoke("RespawnEnemy", timeToWait);
+    }
+
+    /*
+     * Respawns a new random enemy if there are not enough
+     */
+    private void RespawnEnemy() {
+        if (instantiatedEnemies.Count >= maxEnemies) {
+            return;
         }
+
+        var enemyPrefab = enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)];
+        var newEnemy = Instantiate(
+            enemyPrefab,
+            gameObject.transform.position,
+            Quaternion.identity
+        )
+        instantiatedEnemies.Add(newEnemy);
     }
 }

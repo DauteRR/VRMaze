@@ -41,8 +41,7 @@ public class EnemyController : MonoBehaviour {
     public int health = 100;
 
     public delegate void EnemyDeathEventHandler(GameObject enemy);
-
-    event EnemyDeathEventHandler deathEvent;
+    public static event EnemyDeathEventHandler onEnemyDeath;
 
     /*
      * Initialization method
@@ -100,9 +99,17 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    /*
+     * Destroyes the game object after a few seconds and notifies the
+     * subscribers of the `onEnemyDeath` event
+     */
     private IEnumerator DestroyAfter(float seconds) {
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
+        
+        if (onEnemyDeath != null) {
+            onEnemyDeath(gameObject);
+        }
     }
 
     /*
