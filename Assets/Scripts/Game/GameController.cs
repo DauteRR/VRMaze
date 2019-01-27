@@ -8,6 +8,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(MazeConstructor))]
 [RequireComponent(typeof(RespawnSystem))]
 [RequireComponent(typeof(NavMeshSurface))]
+[RequireComponent(typeof(InputController))]
 public class GameController : MonoBehaviour {
 
     /* Maze constructor */
