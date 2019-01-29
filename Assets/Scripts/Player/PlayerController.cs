@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /*
  * Class containing all logic related to the player 
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     /* Rotation speed */
     public float rotationSpeed = 1.5f;
     /* Gravity constant */
-    private const float gravity = -9.8f;
+    private float gravity = 9.8f;
     /* Character controller component */
     private CharacterController controller;
     /* Establish if the player is moving */
@@ -31,11 +31,18 @@ public class PlayerController : MonoBehaviour {
 
     /* Health of the player */
     [Range(0, 100)]
-    public int health;
-
+    [SerializeField]
+    private int health;
     /* Shield of the player */
     [Range(0, 100)]
-    public int shield;
+    [SerializeField]
+    private int shield;
+
+    /* User interface health text */
+    public Text healthText;
+    /* User interface shield text */
+    public Text shieldText;
+
 
     /*
      * Method to retrieve the character components.
@@ -72,7 +79,8 @@ public class PlayerController : MonoBehaviour {
         isMoving = (directions != Vector3.zero);
         Vector3 velocity = directions * movementSpeed;
         velocity = Camera.main.transform.TransformDirection(velocity);
-        velocity.y += gravity;
+        velocity.y = 0;
+        velocity.y -= gravity;
         controller.Move(velocity * Time.deltaTime);
 
         // Noise
@@ -87,15 +95,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton(InputController.GetPS4ButtonName("L2"))) {
             transform.Rotate(Vector3.down * rotationSpeed);
         }
-
-    }
-
-    /*
-     * Toggles the state of the lantern
-     */
-    private void ToggleLantern() {
-        lantern.enabled = !lantern.enabled;
-        
     }
 
     /*
@@ -112,6 +111,7 @@ public class PlayerController : MonoBehaviour {
     private void AddHealth(int healthToAdd) {
         health += healthToAdd;
         health = Mathf.Clamp(health, 0, 100);
+        healthText.text = health + "";
     }
 
     /*
@@ -121,11 +121,23 @@ public class PlayerController : MonoBehaviour {
     private void AddShield(int shieldToAdd) {
         shield += shieldToAdd;
         shield = Mathf.Clamp(shield, 0, 100);
+        shieldText.text = shield + "";
     }
 
-    private void OnTriggerEnter(Collider collider) {
-        if (collider.gameObject.CompareTag("Enemy") && collider.GetType() == typeof(BoxCollider)) {
-            Debug.Log("Hola");
+    /*
+     * Inflicts the given amount of damage to the player
+     * @param amountOfDamage
+     */
+    public void InflictDamage(int amountOfDamage) {
+        shield -= amountOfDamage;
+        if (shield < 0) {
+            health += shield;
         }
+
+        shield = Mathf.Clamp(shield, 0, 100);
+        health = Mathf.Clamp(health, 0, 100);
+
+        shieldText.text = shield + "";
+        healthText.text = health + "";
     }
 }

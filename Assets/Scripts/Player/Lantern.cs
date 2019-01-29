@@ -1,15 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+/*
+ * Class which represents the lantern of the player
+ */
 public class Lantern : MonoBehaviour {
 
     /* Remaining battery time in seconds */
-    public float batteryTime = 20;
+    private float batteryTime = 5;
     /* Light component representing a lantern */
     private Light lantern;
     /* Tells if the lantern is on */
     public bool isOn;
+    /* User interface battery text */
+    public Text batteryText;
+    /* User interface lantern icon */
+    public Image lanternImage;
 
     /*
      * Initialization method
@@ -31,13 +40,33 @@ public class Lantern : MonoBehaviour {
                 StartCoroutine(LastSecondsOfBattery());
             }
 
-            if (batteryTime <= 0) {
-                lantern.intensity = 0;
-                isOn = false;
+            if (batteryTime < 0) {
                 batteryTime = 0;
             }
-            Debug.Log(batteryTime);
+
+            UpdateBatteryText();
         }
+
+        lantern.intensity = (isOn && batteryTime > 0) ? 5 : 0;
+    }
+
+    /*
+     * Updates the user interface element
+     * battery text
+     */
+    private void UpdateBatteryText() {
+        int seconds = (int)(batteryTime % 60); 
+        int minutes = (int)Math.Floor(batteryTime / 60);
+        string sec = seconds + "";
+        string min = minutes + "";
+        if (minutes < 10) {
+            min = "0" + min;
+        }
+        if (seconds < 10) {
+            sec = "0" + sec;
+        }
+
+        batteryText.text = min + ":" + sec;
     }
 
     /*
@@ -47,9 +76,9 @@ public class Lantern : MonoBehaviour {
     private IEnumerator LastSecondsOfBattery() {
         while(batteryTime > 0) {
             lantern.intensity = 5;
-            yield return new WaitForSeconds(Random.Range(0.5f, 0.8f));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 0.8f));
             lantern.intensity = 0;
-            yield return new WaitForSeconds(Random.Range(0.5f, 0.8f));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 0.8f));
         }
     }
 
@@ -58,7 +87,8 @@ public class Lantern : MonoBehaviour {
      */
     public void ToggleLantern() {
         isOn = !isOn;
-        lantern.intensity = (isOn) ? 5 : 0;
+        lanternImage.enabled = isOn;
+        batteryText.enabled = isOn;
     }
 
     /*

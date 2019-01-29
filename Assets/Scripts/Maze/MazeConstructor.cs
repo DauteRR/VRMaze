@@ -91,7 +91,7 @@ public class MazeConstructor : MonoBehaviour {
         GameObject mazeGameObject = new GameObject();
         mazeGameObject.transform.position = Vector3.zero;
         mazeGameObject.name = "Procedural Maze";
-        mazeGameObject.tag = "GeneratedMesh";
+        mazeGameObject.tag = "Maze";
 
         MeshFilter meshFilter = mazeGameObject.AddComponent<MeshFilter>();
         meshFilter.mesh = meshGenerator.FromData(mazeData);

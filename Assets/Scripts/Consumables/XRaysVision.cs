@@ -19,7 +19,7 @@ public class XRaysVision : Consumable {
      */
     public override void Activate() {
         Material[] newMaterials = {floorMaterial, xRaysWallMaterial };
-        GameObject maze = GameObject.FindGameObjectWithTag("GeneratedMesh");
+        GameObject maze = GameObject.FindGameObjectWithTag("Maze");
         maze.GetComponent<Renderer>().materials = newMaterials;
     }
 
@@ -28,7 +28,7 @@ public class XRaysVision : Consumable {
      */
     public override void Deactivate() {
         Material[] newMaterials = { floorMaterial, wallMaterial };
-        GameObject maze = GameObject.FindGameObjectWithTag("GeneratedMesh");
+        GameObject maze = GameObject.FindGameObjectWithTag("Maze");
         maze.GetComponent<Renderer>().materials = newMaterials;
     }
 }

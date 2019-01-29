@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - GeneratedMesh
   - Enemy
   - FinalPoint
   - Shot
+  - Maze
   layers:
   - Default
   - TransparentFX
