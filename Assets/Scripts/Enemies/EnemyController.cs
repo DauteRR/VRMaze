@@ -29,13 +29,10 @@ public class EnemyController : MonoBehaviour {
     private HearingSystem hearingSystem;
 
     /* Health of the enemy */
-    [Range(0, 100)]
     [SerializeField]
-    private int health = 100;
+    public int health;
     /* State of the enemy */
     private EnemyState currentState;
-    /* Damage that the enemy can inflict to the player */
-    public int enemyDamage;
 
     /* Distance for stopping the agent when reachs its destination*/
     private const float DESTINATION_EPSILON = 1.5f;
@@ -72,7 +69,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     /*
-     * 
+     * Changes the state of the enemy according to conditions
      */
     private void Update() {
 
@@ -91,7 +88,6 @@ public class EnemyController : MonoBehaviour {
             if ((visionSystem != null && visionSystem.IsTargetInFOV()) ||
                 (hearingSystem != null && hearingSystem.targetDetected)) {
                 OnStateChange(EnemyState.ATTACKING);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().InflictDamage(enemyDamage);
             }
         }
         if (agent.isStopped && Time.time - stopTimeStamp > idleTime) {

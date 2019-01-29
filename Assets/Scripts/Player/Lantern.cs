@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Lantern : MonoBehaviour {
 
     /* Remaining battery time in seconds */
-    private float batteryTime = 5;
+    private float batteryTime = 20;
     /* Light component representing a lantern */
     private Light lantern;
     /* Tells if the lantern is on */

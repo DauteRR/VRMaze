@@ -82,7 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionButtonName: square
   enemiesPrefabs:
-  - {fileID: 6825835521686445945, guid: 74fa09408b247054ba18943248161055, type: 3}
+  - {fileID: 4114378242803044275, guid: 3e6f9b9658a8ca5409c02bfc26af2cf1, type: 3}
+  - {fileID: 6377387433957134142, guid: 5c1ea67ce28e1ff479f33f671fe34872, type: 3}
+  - {fileID: 366186621032100812, guid: 37131101542c6c94ea6c42ad36d58d2c, type: 3}
   minWaitForRespawnEnemy: 5
   maxWaitForRespawnEnemy: 15
   maxEnemies: 1

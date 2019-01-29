@@ -148,14 +148,8 @@ public class RespawnSystem : MonoBehaviour {
      * Establishes the positions of the consumable objects
      */
     public void SetConsumableLocations() {
-        List<Vector3> consumablePositions = new List<Vector3>();
         for (int i = 0; i < amountOfConsumablesLocations; ++i) {
             Position position = GenerateValidPosition(MazeLocation.CONSUMABLE_LOCATION);
-            consumablePositions.Add(new Vector3(
-                position.column * MazeMeshGenerator.width,
-                2f,
-                position.row * MazeMeshGenerator.width
-            ));
             Instantiate(
                 consumableLocationPrefab,
                 new Vector3(
