@@ -5,8 +5,7 @@ using UnityEngine;
 /*
  * Class containing the enemy respawn logic
  */
-public class EnemyRespawn : MonoBehaviour
-{
+public class EnemyRespawn : Gazable {
 
     /* Enemies prefabs needed for the instantiate method during the respawn */
     public GameObject[] enemiesPrefabs;
@@ -15,51 +14,90 @@ public class EnemyRespawn : MonoBehaviour
     /* Maximum amount of time to see a new enemy respawning */
     public float maxWaitForRespawnEnemy;
     /* Maximum amount of instantiated enemies */
-    public int maxEnemies = 1;
+    public int maxEnemies;
     /* Instantiated enemies */
     private List<GameObject> instantiatedEnemies;
+
+    /* Tells if the respawn is active */
+    private bool activeRespawn;
+    /* Minimum amount of time to wait after the respawn is deactivated */
+    public float minWaitForActivateRespawn;
+    /* Maximum amount of time to wait after the respawn is deactivated */
+    public float maxWaitForActivateRespawn;
 
     /*
      * Initialization method
      */
     private void Start() {
         instantiatedEnemies = new List<GameObject>();
-        EnemyController.onEnemyDeath += onEnemyDeath;
+        EnemyController.OnEnemyDeath += onEnemyDeath;
+        activeRespawn = true;
+
+        StartCoroutine(RespawnEnemies());
     }
 
     /*
      * Callback to respond to an enemy death event
      */
     private void onEnemyDeath(GameObject enemy) {
-        instantiatedEnemies.Remove(enemy); 
-        RespawnEnemyDelayed();
+        instantiatedEnemies.Remove(enemy);
     }
 
     /*
-     * Respawns an enemy after a random period of time
+     * Respawns enemies after a random period of time
      */
-    private void RespawnEnemyDelayed() {
-        var timeToWait = Random.Range(
-            minWaitForRespawnEnemy,
-            maxWaitForRespawnEnemy
-        );
-        Invoke("RespawnEnemy", timeToWait);
+    private IEnumerator RespawnEnemies() {
+        while (true) {
+            yield return new WaitForSeconds(Random.Range(
+                minWaitForRespawnEnemy,
+                maxWaitForRespawnEnemy
+            ));
+            RespawnEnemy();
+        }
     }
 
     /*
      * Respawns a new random enemy if there are not enough
      */
     private void RespawnEnemy() {
-        if (instantiatedEnemies.Count >= maxEnemies) {
+        if (!activeRespawn || instantiatedEnemies.Count >= maxEnemies) {
             return;
         }
 
-        var enemyPrefab = enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)];
-        var newEnemy = Instantiate(
+        GameObject enemyPrefab = enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)];
+        GameObject newEnemy = Instantiate(
             enemyPrefab,
             gameObject.transform.position,
             Quaternion.identity
-        )
+        );
         instantiatedEnemies.Add(newEnemy);
+    }
+
+    /* 
+     * When the pointer is clicked on the respawn,
+     * deactivates the respawn temporarily
+     */
+    public override void OnPointerClick() {
+        StartCoroutine(TemporarilyDeactivateRespawn());
+    }
+
+    /*
+     * Deactivates the respawn temporarily
+     */
+    private IEnumerator TemporarilyDeactivateRespawn() {
+        activeRespawn = false;
+        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem ps in particleSystems) {
+            ps.Pause();
+        }
+        yield return new WaitForSeconds(Random.Range(
+            minWaitForActivateRespawn,
+            maxWaitForActivateRespawn
+        ));
+        activeRespawn = true;
+
+        foreach (ParticleSystem ps in particleSystems) {
+            ps.Play();
+        }
     }
 }

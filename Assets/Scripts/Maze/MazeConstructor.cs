@@ -25,9 +25,7 @@ public class MazeConstructor : MonoBehaviour {
     [SerializeField] private Material mazeMat1;
     /* Walls material */
     [SerializeField] private Material mazeMat2;
-    /* 
-     * Maze data
-     */
+    /* Maze data */
     public MazeLocation[,] mazeData {
         get; private set;
     }

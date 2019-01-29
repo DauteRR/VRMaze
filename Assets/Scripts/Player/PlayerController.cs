@@ -17,26 +17,44 @@ public class PlayerController : MonoBehaviour {
     private const float gravity = -9.8f;
     /* Character controller component */
     private CharacterController controller;
-    /* Lantern of the player */
-    private Light lantern;
     /* Establish if the player is moving */
     private bool isMoving;
+
+
     /* Represents the noises of the player */
     private SphereCollider noiseCollider;
+    /* Tells if the player makes noises or not */
+    private bool inaudiblePlayer;
+
+    /* Lantern of the player */
+    private Lantern lantern;
+
+    /* Health of the player */
+    [Range(0, 100)]
+    public int health;
+
+    /* Shield of the player */
+    [Range(0, 100)]
+    public int shield;
 
     /*
      * Method to retrieve the character components.
      */
-    void Start() {
+    private void Start() {
         controller = GetComponent<CharacterController>();
         noiseCollider = GetComponent<SphereCollider>();
-        lantern = GetComponentInChildren<Light>();
+        lantern = GetComponentInChildren<Lantern>();
+
+        Health.OnHealthCollect += AddHealth;
+        Shield.OnShieldCollect += AddShield;
+        InaudiblePlayer.OnInaudiblePlayerCollect += SetInaudiblePlayer;
     }
 
-    void Update() {
+    private void Update() {
 
         if (InputController.GetButtonUp(InputController.GetPS4ButtonName("L3"))) {
-            ToggleLantern();
+            lantern.ToggleLantern();
+            noiseCollider.radius = 2;
         }
         PlayerMovement();
     }
@@ -44,7 +62,7 @@ public class PlayerController : MonoBehaviour {
     /*
      * Method to control the player movement
      */
-    void PlayerMovement() {
+    private void PlayerMovement() {
         // Movement
         Vector3 directions = new Vector3(
             InputController.GetAxis("LeftJoystickHorizontal"), 
@@ -52,12 +70,15 @@ public class PlayerController : MonoBehaviour {
             InputController.GetAxis("LeftJoystickVertical"
         ));
         isMoving = (directions != Vector3.zero);
-        noiseCollider.radius = (isMoving) ? 5 : 1;
-        noiseCollider.radius += (lantern.enabled) ? 1 : 0;
         Vector3 velocity = directions * movementSpeed;
         velocity = Camera.main.transform.TransformDirection(velocity);
         velocity.y += gravity;
         controller.Move(velocity * Time.deltaTime);
+
+        // Noise
+        noiseCollider.radius = (isMoving) ? 5 : 1;
+        noiseCollider.radius += (lantern.isOn) ? 1 : 0;
+        noiseCollider.radius = (inaudiblePlayer) ? 0 : noiseCollider.radius;
 
         // Rotation
         if (Input.GetButton(InputController.GetPS4ButtonName("R2"))) {
@@ -72,12 +93,39 @@ public class PlayerController : MonoBehaviour {
     /*
      * Toggles the state of the lantern
      */
-    void ToggleLantern() {
+    private void ToggleLantern() {
         lantern.enabled = !lantern.enabled;
-        noiseCollider.radius = 2;
+        
     }
 
-    public void Foo() {
-        Debug.Log("Foo");
+    /*
+     * Setter method form inaudible player
+     */
+    private void SetInaudiblePlayer(bool inaudiblePlayer) {
+        this.inaudiblePlayer = inaudiblePlayer;
+    }
+
+    /*
+     * Adds the given amount of health
+     * to the player health
+     */
+    private void AddHealth(int healthToAdd) {
+        health += healthToAdd;
+        health = Mathf.Clamp(health, 0, 100);
+    }
+
+    /*
+     * Adds the given amount of shield
+     * to the player shield
+     */
+    private void AddShield(int shieldToAdd) {
+        shield += shieldToAdd;
+        shield = Mathf.Clamp(shield, 0, 100);
+    }
+
+    private void OnTriggerEnter(Collider collider) {
+        if (collider.gameObject.CompareTag("Enemy") && collider.GetType() == typeof(BoxCollider)) {
+            Debug.Log("Hola");
+        }
     }
 }

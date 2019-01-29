@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GeneratedMesh
   - Enemy
+  - FinalPoint
+  - Shot
   layers:
   - Default
   - TransparentFX

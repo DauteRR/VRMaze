@@ -23,8 +23,7 @@ public class Position {
 /*
  * Class which contains all the respawn logic
  */
-public class RespawnSystem : MonoBehaviour
-{
+public class RespawnSystem : MonoBehaviour {
     /* Flag to indicate if the system is initialized */
     private bool isInitialized = false;
 
@@ -98,8 +97,8 @@ public class RespawnSystem : MonoBehaviour
         Position respawnPosition = GenerateValidPosition(MazeLocation.PLAYER_RESPAWN);
         
         Vector3 position = new Vector3(
-            respawnPosition.column * MazeMeshGenerator.width, 
-            2f, 
+            respawnPosition.column * MazeMeshGenerator.width,
+            1.08f, 
             respawnPosition.row * MazeMeshGenerator.width
         );
 

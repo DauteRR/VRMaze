@@ -5,8 +5,7 @@ using UnityEngine;
 /*
  * Class which wraps the enemies hearing system logic
  */
-public class HearingSystem : MonoBehaviour
-{
+public class HearingSystem : MonoBehaviour {
     /* Tells if the enemy is hearing a noise */
     [HideInInspector]
     public bool targetDetected;

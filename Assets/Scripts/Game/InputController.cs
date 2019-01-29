@@ -6,8 +6,7 @@ using UnityEngine;
  * Class created with the goal of ease the 
  * input management
  */
-public class InputController : Input
-{
+public class InputController : Input {
     /* Tells if the game is being executed on a mobile */
     public static bool isOnMobile;
     /* Gives the name for each PS4 button on PC */

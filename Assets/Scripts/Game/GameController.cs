@@ -15,26 +15,38 @@ public class GameController : MonoBehaviour {
     private MazeConstructor mazeConstructor;
     /* Respawn system */
     private RespawnSystem respawnSystem;
+    /* Maze navigation mesh surface */
+    private NavMeshSurface mazeSurface;
 
     /* Height of the maze */
-    public int mazeRows = 15;
+    public int initialMazeRows = 9;
     /* Width of the maze */
-    public int mazeColumns = 15;
+    public int initialMazeColumns = 9;
+
+    public int solvedMazes = 0;
 
     /**
      * Method which invokes maze constructor generation method.
      */
-    void Start() {
-        // Maze construction
+    private void Awake() {
         mazeConstructor = GetComponent<MazeConstructor>();
-        mazeConstructor.GenerateNewMaze(mazeRows, mazeColumns);
+        respawnSystem = GetComponent<RespawnSystem>();
+        mazeSurface = GetComponent<NavMeshSurface>();
+
+    }
+
+    private void Start() {
+        OnNewMaze();
+    }
+
+    public void OnNewMaze() {
+        // Maze construction
+        mazeConstructor.GenerateNewMaze(initialMazeRows, initialMazeColumns);
 
         // Spawn system initialization
-        respawnSystem = GetComponent<RespawnSystem>();
         respawnSystem.InitilizeRespawnSystem(mazeConstructor.mazeData);
 
         // Maze nav mesh surface baking
-        NavMeshSurface mazeSurface = GetComponent<NavMeshSurface>();
         mazeSurface.BuildNavMesh();
 
         // Player positioning

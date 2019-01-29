@@ -22,26 +22,32 @@ public class EnemyController : MonoBehaviour {
     private NavMeshAgent agent;
     /* Animation controller */
     private Animator animatorController;
+
     /* Vision system (optional)*/
     private VisionSystem visionSystem;
     /* Hearing system (optional)*/
     private HearingSystem hearingSystem;
+
+    /* Health of the enemy */
+    [Range(0, 100)]
+    public int health = 100;
     /* State of the enemy */
     private EnemyState currentState;
+
     /* Distance for stopping the agent when reachs its destination*/
     private const float DISTANCE_EPSILON = 1.5f;
+
     /* Maximum distance for the wandering */
     private float wanderRadius = 25;
     /* Amount of time for idle state after wandering */
     private float idleTime = 3;
     /* Timestamp after the enemy stops walking */
     private float stopTimeStamp;
-    /* Health of the enemy */
-    [Range(0, 100)]
-    public int health = 100;
 
+    /* Delegate for enemy death events */
     public delegate void EnemyDeathEventHandler(GameObject enemy);
-    public static event EnemyDeathEventHandler onEnemyDeath;
+    /* Enemy death event */
+    public static event EnemyDeathEventHandler OnEnemyDeath;
 
     /*
      * Initialization method
@@ -106,10 +112,8 @@ public class EnemyController : MonoBehaviour {
     private IEnumerator DestroyAfter(float seconds) {
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
-        
-        if (onEnemyDeath != null) {
-            onEnemyDeath(gameObject);
-        }
+
+        OnEnemyDeath?.Invoke(gameObject);
     }
 
     /*
