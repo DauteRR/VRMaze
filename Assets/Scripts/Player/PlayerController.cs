@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
     /* Tells if the player makes noises or not */
     private bool inaudiblePlayer;
 
+    private float currentNoise;
+
     /* Lantern of the player */
     private Lantern lantern;
 
@@ -61,7 +63,6 @@ public class PlayerController : MonoBehaviour {
 
         if (InputController.GetButtonUp(InputController.GetPS4ButtonName("L3"))) {
             lantern.ToggleLantern();
-            noiseCollider.radius = 2;
         }
         PlayerMovement();
     }
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour {
         ));
         isMoving = (directions != Vector3.zero);
         Vector3 velocity = directions * movementSpeed;
-        velocity = Camera.main.transform.TransformDirection(velocity);
+        //velocity = Camera.main.transform.TransformDirection(velocity);
         velocity.y = 0;
         velocity.y -= gravity;
         controller.Move(velocity * Time.deltaTime);
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour {
         // Noise
         noiseCollider.radius = (isMoving) ? 5 : 1;
         noiseCollider.radius += (lantern.isOn) ? 1 : 0;
+        noiseCollider.radius += currentNoise;
         noiseCollider.radius = (inaudiblePlayer) ? 0 : noiseCollider.radius;
 
         // Rotation
@@ -95,6 +97,15 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton(InputController.GetPS4ButtonName("L2"))) {
             transform.Rotate(Vector3.down * rotationSpeed);
         }
+    }
+
+    /*
+     * Corutine to register new noises
+     */
+    public IEnumerator NewNoise(float time, float intensity) {
+        currentNoise += intensity;
+        yield return new WaitForSeconds(time);
+        currentNoise -= intensity;
     }
 
     /*

@@ -19,6 +19,8 @@ public class Lantern : MonoBehaviour {
     public Text batteryText;
     /* User interface lantern icon */
     public Image lanternImage;
+    /* Reference to player controller */
+    private PlayerController playerController;
 
     /*
      * Initialization method
@@ -26,6 +28,7 @@ public class Lantern : MonoBehaviour {
     private void Awake() {
         lantern = GetComponent<Light>();
         Battery.OnBatteryCollect += AddBatteryTime;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     /*
@@ -86,6 +89,7 @@ public class Lantern : MonoBehaviour {
      * Toggles the state of the lantern
      */
     public void ToggleLantern() {
+        StartCoroutine(playerController.NewNoise(0.5f, 1));
         isOn = !isOn;
         lanternImage.enabled = isOn;
         batteryText.enabled = isOn;

@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour {
     public float fireRate;
     /* Needed for cadency control */
     private float nextFire;
+    /* Reference to player controller */
+    private PlayerController playerController;
 
     /*
      * Initialization method
@@ -26,6 +28,7 @@ public class Weapon : MonoBehaviour {
     private void Start() {
         selectedAmmo = normalAmmoPrefab;
         IncreaseDamage.OnIncreaseDamageCollect += SelectAmmo;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     /*
@@ -39,6 +42,7 @@ public class Weapon : MonoBehaviour {
         if (InputController.GetButton(InputController.GetPS4ButtonName("R1")) && Time.time > nextFire) {
             nextFire = Time.time + fireRate;
             Instantiate(selectedAmmo, shotSpawnPosition.position, Camera.main.transform.rotation);
+            StartCoroutine(playerController.NewNoise(1, 3));
         }
     }
 

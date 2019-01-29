@@ -1163,6 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 80
+  timeToDestroy: 3
 --- !u!114 &366186621032100813
 MonoBehaviour:
   m_ObjectHideFlags: 0

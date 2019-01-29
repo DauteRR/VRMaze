@@ -33,6 +33,8 @@ public class EnemyController : MonoBehaviour {
     public int health;
     /* State of the enemy */
     private EnemyState currentState;
+    /* Amount of time to wait before destroying game object when the enemy dies */
+    public float timeToDestroy;
 
     /* Distance for stopping the agent when reachs its destination*/
     private const float DESTINATION_EPSILON = 1.5f;
@@ -105,7 +107,7 @@ public class EnemyController : MonoBehaviour {
             agent.isStopped = true;
             agent.velocity = Vector3.zero;
             OnStateChange(EnemyState.DEAD);
-            StartCoroutine(DestroyAfter(5));
+            StartCoroutine(DestroyAfter(timeToDestroy));
         }
     }
 

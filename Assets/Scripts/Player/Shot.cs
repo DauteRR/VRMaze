@@ -15,6 +15,8 @@ public class Shot : MonoBehaviour
     public float shotSpeed;
     /* Damage of the shot */
     public int damage;
+    /* Collision prefab */
+    public GameObject collisionPrefab;
 
     /*
      * Initialization method
@@ -36,11 +38,16 @@ public class Shot : MonoBehaviour
      */
     private void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag(("Maze"))) {
+            GameObject collision = Instantiate(collisionPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(collision, 3);
         }
 
         if (collider.CompareTag(("Enemy")) && typeof(BoxCollider) == collider.GetType()) {
+            GameObject collision = Instantiate(collisionPrefab, gameObject.transform.position, Quaternion.identity);
+            Instantiate(collisionPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(collision, 3);
             collider.gameObject.GetComponent<EnemyController>().InflictDamage(damage);
         }
     }

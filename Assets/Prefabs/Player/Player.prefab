@@ -141,7 +141,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232494458480849873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 8199942488182055584}
@@ -442,8 +442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 187}
-  m_SizeDelta: {x: 155, y: 45}
+  m_AnchoredPosition: {x: -8, y: 356}
+  m_SizeDelta: {x: 245.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &586381497717377517
 CanvasRenderer:
@@ -475,11 +475,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 52
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -537,8 +537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168, y: -195}
-  m_SizeDelta: {x: 50, y: 45}
+  m_AnchoredPosition: {x: -258, y: -271}
+  m_SizeDelta: {x: 50, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4646235231660210937
 CanvasRenderer:
@@ -625,8 +625,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112.100006, y: 187}
-  m_SizeDelta: {x: 36, y: 50}
+  m_AnchoredPosition: {x: -112.100006, y: 356}
+  m_SizeDelta: {x: 43, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9134230169465816521
 CanvasRenderer:
@@ -713,8 +713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: -142}
-  m_SizeDelta: {x: 70, y: 45}
+  m_AnchoredPosition: {x: -200, y: -199.6}
+  m_SizeDelta: {x: 105, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &592909807148839828
 CanvasRenderer:
@@ -746,11 +746,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 53
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 53
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -808,8 +808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: -195}
-  m_SizeDelta: {x: 70, y: 45}
+  m_AnchoredPosition: {x: -200, y: -271}
+  m_SizeDelta: {x: 105, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4255142204057422439
 CanvasRenderer:
@@ -841,11 +841,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 52
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -903,8 +903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -168, y: -142}
-  m_SizeDelta: {x: 50, y: 45}
+  m_AnchoredPosition: {x: -258, y: -199.6}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6530356484986799307
 CanvasRenderer:
@@ -1181,12 +1181,12 @@ PrefabInstance:
         type: 3}
       propertyPath: specialAmmoPrefab
       value: 
-      objectReference: {fileID: 79, guid: ae9887b7e020ff845a4f7b756b37e8c3, type: 3}
+      objectReference: {fileID: 91, guid: ae9887b7e020ff845a4f7b756b37e8c3, type: 3}
     - target: {fileID: 4568453758865650232, guid: d992a232642f7574b80a75c2ca4b4cb8,
         type: 3}
       propertyPath: normalAmmoPrefab
       value: 
-      objectReference: {fileID: 88, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
+      objectReference: {fileID: 166, guid: 9a0c3383523899643a8d0661cfaca4e4, type: 3}
     - target: {fileID: 4568453758865650232, guid: d992a232642f7574b80a75c2ca4b4cb8,
         type: 3}
       propertyPath: normalShotPrefab

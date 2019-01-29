@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &88
+--- !u!1 &166
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 164}
-  - component: {fileID: 222}
-  - component: {fileID: 233}
-  - component: {fileID: 262}
   - component: {fileID: 348}
-  - component: {fileID: 342}
-  - component: {fileID: 259}
-  - component: {fileID: 241}
+  - component: {fileID: 452}
+  - component: {fileID: 466}
+  - component: {fileID: 512}
+  - component: {fileID: 573}
+  - component: {fileID: 574}
+  - component: {fileID: 504}
+  - component: {fileID: 477}
   m_Layer: 0
   m_Name: NormalAmmo
   m_TagString: Shot
@@ -23,13 +23,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &164
+--- !u!4 &348
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
@@ -37,13 +37,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &222
+--- !u!23 &452
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,21 +74,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &233
+--- !u!33 &466
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_Mesh: {fileID: 0}
---- !u!136 &262
+--- !u!136 &512
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -96,13 +96,13 @@ CapsuleCollider:
   m_Height: 58.39591
   m_Direction: 2
   m_Center: {x: -0.5886555, y: 0.38, z: 24.52509}
---- !u!114 &348
+--- !u!114 &573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42de8eb18ab1ce45901d79315015555, type: 3}
@@ -110,13 +110,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotSpeed: 20
   damage: 20
---- !u!114 &342
+  collisionPrefab: {fileID: 840342226851326701, guid: a1ac57b4e0ac7a7479100423c1cb58c4,
+    type: 3}
+--- !u!114 &574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0884dceb0d4308c4eb8bc763c8f8deae, type: 3}
@@ -129,13 +131,13 @@ MonoBehaviour:
   m_lineColor: {r: 0.034482718, g: 1, b: 0, a: 0}
   m_lineWidth: 66
   m_lightSaberFactor: 0.747
---- !u!108 &259
+--- !u!108 &504
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
@@ -167,13 +169,13 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!54 &241
+--- !u!54 &477
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88}
+  m_GameObject: {fileID: 166}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
