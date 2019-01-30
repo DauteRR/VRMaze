@@ -5,6 +5,8 @@ using UnityEngine;
 public class FinalPoint : Gazable {
 
     public override void OnPointerClick() {
-        Debug.Log("Final point reached!");
+        ScenesController scenesController =
+            GameObject.FindGameObjectWithTag("ScenesController").GetComponent<ScenesController>();
+        scenesController.OnFinishedMaze(true);
     }
 }

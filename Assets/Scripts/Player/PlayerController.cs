@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour {
     /* User interface shield text */
     public Text shieldText;
 
+    /* Amount of defeated enemies */
+    public int defeatedEnemies;
+
 
     /*
      * Method to retrieve the character components.
@@ -57,14 +60,25 @@ public class PlayerController : MonoBehaviour {
         Health.OnHealthCollect += AddHealth;
         Shield.OnShieldCollect += AddShield;
         InaudiblePlayer.OnInaudiblePlayerCollect += SetInaudiblePlayer;
+
+        EnemyController.OnEnemyDeath += (enemy) => defeatedEnemies++;
     }
 
+    /*
+     * Updates the player state every frame
+     */
     private void Update() {
 
         if (InputController.GetButtonUp(InputController.GetPS4ButtonName("L3"))) {
             lantern.ToggleLantern();
         }
         PlayerMovement();
+
+        if (health <= 0 || InputController.GetButtonUp(InputController.GetPS4ButtonName("PS"))) {
+            ScenesController scenesController =
+                GameObject.FindGameObjectWithTag("ScenesController").GetComponent<ScenesController>();
+            scenesController.OnFinishedMaze(false);
+        }
     }
 
     /*
@@ -79,7 +93,7 @@ public class PlayerController : MonoBehaviour {
         ));
         isMoving = (directions != Vector3.zero);
         Vector3 velocity = directions * movementSpeed;
-        //velocity = Camera.main.transform.TransformDirection(velocity);
+        velocity = Camera.main.transform.TransformDirection(velocity);
         velocity.y = 0;
         velocity.y -= gravity;
         controller.Move(velocity * Time.deltaTime);
@@ -140,6 +154,7 @@ public class PlayerController : MonoBehaviour {
      * @param amountOfDamage
      */
     public void InflictDamage(int amountOfDamage) {
+        GetComponent<AudioSource>().Play();
         shield -= amountOfDamage;
         if (shield < 0) {
             health += shield;

@@ -43,12 +43,12 @@ public class RespawnSystem : MonoBehaviour {
     public GameObject finalPointPrefab;
 
     /* Quantity of consumable locations */
-    public int amountOfConsumablesLocations;
+    private int amountOfConsumablesLocations;
     /* Consumable location prefab needed for the instantiate method */
     public GameObject consumableLocationPrefab;
 
     /* Quantity of respawn points for enemies */
-    public int amountOfEnemyRespawns;
+    private int amountOfEnemyRespawns;
     /* Enemies respawn prefab needed for the instantiate method */
     public GameObject enemyRespawnPrefab;
 
@@ -72,6 +72,8 @@ public class RespawnSystem : MonoBehaviour {
                 }
             }
         }
+        amountOfConsumablesLocations = (int)(freePositions.Count * 0.1);
+        amountOfEnemyRespawns = (int)(freePositions.Count * 0.1);
     }
 
     /*

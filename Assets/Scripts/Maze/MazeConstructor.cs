@@ -51,7 +51,6 @@ public class MazeConstructor : MonoBehaviour {
         if (rows % 2 == 0 && columns % 2 == 0) {
             Debug.LogError("Odd numbers work better for dungeon size.");
         }
-
         mazeData = dataGenerator.FromDimensions(rows, columns);
         DisplayMaze();
     }

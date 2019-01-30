@@ -179,15 +179,4 @@ public class EnemyController : MonoBehaviour {
         health -= amountOfDamage;
         health = Mathf.Clamp(health, 0, 100);
     }
-
-    /*
-    private void OnTriggerEnter(Collider collider) {
-        if (currentState == EnemyState.ATTACKING &&
-            collider.CompareTag(("Player")) &&
-            typeof(BoxCollider) == collider.GetType()
-        ) {
-            collider.gameObject.GetComponent<PlayerController>().InflictDamage(50);
-        }
-    }
-    */
 }

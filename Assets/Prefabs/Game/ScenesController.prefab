@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2834302649898037391}
   m_Layer: 0
   m_Name: ScenesController
-  m_TagString: Untagged
+  m_TagString: ScenesController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd5537733868de4e8b373b84a77e2c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMazeRows: 0
+  currentMazeColumns: 0
