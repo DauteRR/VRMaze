@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7156041363461437343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 7156041364545580345}
@@ -78,14 +78,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7156041363461437343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01fcab93094a53446add363421846024, type: 3}
+  m_Script: {fileID: 11500000, guid: 2763cae08936daf4eabc1805dfe5bfac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtonName: square
   enemiesPrefabs:
-  - {fileID: 4114378242803044275, guid: 3e6f9b9658a8ca5409c02bfc26af2cf1, type: 3}
-  - {fileID: 6377387433957134142, guid: 5c1ea67ce28e1ff479f33f671fe34872, type: 3}
-  - {fileID: 366186621032100812, guid: 37131101542c6c94ea6c42ad36d58d2c, type: 3}
+  - {fileID: 8647418082322048350, guid: 97f339a88fe9bc84197a2f1d2c9d6295, type: 3}
+  - {fileID: 3661770921235806414, guid: e3fca2ff582aa0646af372048e153050, type: 3}
+  - {fileID: 2525537672602217746, guid: 3af4bcab108f73943bea7a1c67baa16e, type: 3}
   minWaitForRespawnEnemy: 5
   maxWaitForRespawnEnemy: 15
   maxEnemies: 1
@@ -101,7 +101,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -4841,8 +4841,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa91d4f0ea900dd4baf6e1cfa560417f, type: 2}
-  - {fileID: 2100000, guid: aa91d4f0ea900dd4baf6e1cfa560417f, type: 2}
+  - {fileID: 2100000, guid: 256608d28cea23c44b01fd0324cbe0cc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9539,8 +9539,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c876a0946b9004d4f98bedcc51f75608, type: 2}
-  - {fileID: 2100000, guid: c876a0946b9004d4f98bedcc51f75608, type: 2}
+  - {fileID: 2100000, guid: ba2e2761fc4f39742849b1a1f9e202b7, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4730937402956544659}
   - component: {fileID: 6822966657740228569}
   - component: {fileID: 1066200444144658260}
-  - component: {fileID: 8256750672080343417}
   - component: {fileID: 2556102977195435520}
+  - component: {fileID: 1345724444498360997}
   - component: {fileID: 8969073298476863086}
   m_Layer: 0
   m_Name: Consumable_Health
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4730937402958799955}
-  m_Mesh: {fileID: 4300000, guid: 15e9f800a9ce01e48a1b5aa531ec4bdf, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 8503662ec3bbaa844ba5b58e10bb7322, type: 3}
 --- !u!23 &4730937402956544659
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 52f3050bde43daa42a3136c458c88f60, type: 2}
+  - {fileID: 2100000, guid: d8fdb0d9d7481b249863c3706f3ccae7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,22 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &8256750672080343417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4730937402958799955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e9cfd83a137b8448a32e4dacc2860b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionButtonName: square
-  duration: 2
-  pickedUp: 0
-  healthToAdd: 25
 --- !u!114 &2556102977195435520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +118,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4730937402958799955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b689fb3d95835fb489c801c23abe0ffc, type: 3}
+  m_Script: {fileID: 11500000, guid: 64016a27667f50b4c9b65f932bc6c696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionButtonName: square
+  duration: 2
+  pickedUp: 0
+  healthToAdd: 25
+--- !u!114 &1345724444498360997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730937402958799955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a161780aca64478dbd779d43a5819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!82 &8969073298476863086
@@ -147,7 +147,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1

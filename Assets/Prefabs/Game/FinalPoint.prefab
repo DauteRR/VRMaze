@@ -4654,8 +4654,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c876a0946b9004d4f98bedcc51f75608, type: 2}
-  - {fileID: 2100000, guid: c876a0946b9004d4f98bedcc51f75608, type: 2}
+  - {fileID: 2100000, guid: ba2e2761fc4f39742849b1a1f9e202b7, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18766,8 +18766,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c876a0946b9004d4f98bedcc51f75608, type: 2}
-  - {fileID: 2100000, guid: c876a0946b9004d4f98bedcc51f75608, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23464,8 +23464,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64ea45a687e2e2445920d653b6f5eff0, type: 2}
-  - {fileID: 2100000, guid: 64ea45a687e2e2445920d653b6f5eff0, type: 2}
+  - {fileID: 2100000, guid: b0f01ec593528e444ae0524919d60f99, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28162,8 +28162,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64ea45a687e2e2445920d653b6f5eff0, type: 2}
-  - {fileID: 2100000, guid: 64ea45a687e2e2445920d653b6f5eff0, type: 2}
+  - {fileID: 2100000, guid: b0f01ec593528e444ae0524919d60f99, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28234,7 +28234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3576632409090646122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 3576632408213662987}
@@ -28282,7 +28282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3576632409090646122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71f9326ffde7404da738c8b81ad273e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ea9d8710a609c1428f44279f1255245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtonName: square
@@ -28296,7 +28296,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1

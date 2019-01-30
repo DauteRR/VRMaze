@@ -106,12 +106,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42de8eb18ab1ce45901d79315015555, type: 3}
+  m_Script: {fileID: 11500000, guid: 72758e14435771749b5148f2383eb39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shotSpeed: 20
   damage: 20
-  collisionPrefab: {fileID: 840342226851326701, guid: a1ac57b4e0ac7a7479100423c1cb58c4,
+  collisionPrefab: {fileID: 840342226851326701, guid: 9ec358d6376ed5f4aabc7bd5114b4ad5,
     type: 3}
 --- !u!114 &574
 MonoBehaviour:
@@ -122,16 +122,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0884dceb0d4308c4eb8bc763c8f8deae, type: 3}
+  m_Script: {fileID: 11500000, guid: 400fa862ae81e3747b6bfc1633e87e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_templateMaterial: {fileID: 2100000, guid: f68f8c3a3d76fb74cbb880d372c81620, type: 2}
-  m_doNotOverwriteTemplateMaterialProperties: 1
+  m_templateMaterial: {fileID: 2100000, guid: d9dbee2deafcb6c4f94aae9dd630a616, type: 2}
+  m_doNotOverwriteTemplateMaterialProperties: 0
   m_startPos: {x: 0, y: 0, z: 0}
   m_endPos: {x: 0, y: 0, z: 50}
-  m_lineColor: {r: 0.034482718, g: 1, b: 0, a: 0}
-  m_lineWidth: 66
-  m_lightSaberFactor: 0.747
+  m_lineColor: {r: 0, g: 1, b: 1, a: 0}
+  m_lineWidth: 70
+  m_lightSaberFactor: 0.9
 --- !u!108 &504
 Light:
   m_ObjectHideFlags: 0
@@ -196,9 +196,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38ef7c34181db5e4fab817a7752dd9c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 523da75abec62de4ca04fef78e4fd9c3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

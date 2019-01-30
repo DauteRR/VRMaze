@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 449}
   - component: {fileID: 463}
   - component: {fileID: 563}
-  - component: {fileID: 503}
   - component: {fileID: 564}
+  - component: {fileID: 503}
   - component: {fileID: 510}
   - component: {fileID: 476}
   - component: {fileID: 8839842579202154177}
@@ -92,16 +92,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 91}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0884dceb0d4308c4eb8bc763c8f8deae, type: 3}
+  m_Script: {fileID: 11500000, guid: 72758e14435771749b5148f2383eb39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_templateMaterial: {fileID: 2100000, guid: 27e387db439fbad42b6926ac1ee66601, type: 2}
-  m_doNotOverwriteTemplateMaterialProperties: 1
+  shotSpeed: 30
+  damage: 50
+  collisionPrefab: {fileID: 8793153532588012884, guid: fe3a877cb1c802d43bfcc9fa574ce4f6,
+    type: 3}
+--- !u!114 &564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400fa862ae81e3747b6bfc1633e87e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_templateMaterial: {fileID: 2100000, guid: f7fc44ff0f81bfc45b83e60c00ad4870, type: 2}
+  m_doNotOverwriteTemplateMaterialProperties: 0
   m_startPos: {x: 0, y: 0, z: 0}
   m_endPos: {x: 0, y: 0, z: 50}
-  m_lineColor: {r: 0.034482718, g: 1, b: 0, a: 0}
-  m_lineWidth: 66
-  m_lightSaberFactor: 0.747
+  m_lineColor: {r: 1, g: 0, b: 0, a: 0}
+  m_lineWidth: 70
+  m_lightSaberFactor: 0.9
 --- !u!108 &503
 Light:
   m_ObjectHideFlags: 0
@@ -140,22 +156,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42de8eb18ab1ce45901d79315015555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shotSpeed: 30
-  damage: 50
-  collisionPrefab: {fileID: 8793153532588012884, guid: eeeb9d7d3283467439da448188b33aa3,
-    type: 3}
 --- !u!136 &510
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38ef7c34181db5e4fab817a7752dd9c8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 523da75abec62de4ca04fef78e4fd9c3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1

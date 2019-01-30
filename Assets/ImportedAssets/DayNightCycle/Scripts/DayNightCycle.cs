@@ -4,7 +4,6 @@ using System.Collections;
 public class DayNightCycle : MonoBehaviour {
 
     public GameObject stars;
-    public GameObject worldProbe;
 
     public Gradient nightDayColor;
 
@@ -48,16 +47,6 @@ public class DayNightCycle : MonoBehaviour {
 
 		mainLight.intensity = newIntensity;
 
-        if (newIntensity < 0.85 && !stars.activeSelf) {
-            stars.SetActive(true);
-            mainLight.shadows = LightShadows.None;
-        }
-
-        if (newIntensity >= 0.85 && stars.activeSelf) {
-            stars.SetActive(false);
-            mainLight.shadows = LightShadows.Soft;
-        }
-
         tRange = 1 - minAmbientPoint;
 		dot = Mathf.Clamp01 ((Vector3.Dot (mainLight.transform.forward, Vector3.down) - minAmbientPoint) / tRange);
 		newIntensity = ((maxAmbient - minAmbient) * dot) + minAmbient;
@@ -72,9 +61,12 @@ public class DayNightCycle : MonoBehaviour {
 		newIntensity = ((dayAtmosphereThickness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
 		skyMat.SetFloat("_AtmosphereThickness", newIntensity);
 
-		if (dot > 0) 
-			transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
-		else
-			transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
+        if (dot > 0) {
+            stars.SetActive(false);
+            transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
+        } else {
+            stars.SetActive(true);
+            transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
+        }
 	}
 }

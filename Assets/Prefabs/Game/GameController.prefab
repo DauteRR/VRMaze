@@ -44,12 +44,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6779864030852105022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d3fd26ddf0ebc4448926ee9411ceef8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cfcbc82a220a7440a4aa9e900039a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebug: 0
-  mazeMat1: {fileID: 2100000, guid: 2019d743bc0984ba1b81150901d44455, type: 2}
-  mazeMat2: {fileID: 2100000, guid: a36a45d20a42a4a0695e782d8b69409e, type: 2}
 --- !u!114 &6779864030852105023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,9 +56,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6779864030852105022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eec4e99db07e06b4bb25d180981021d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0092c4d9b35bcb04b959252c83902bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 1232494458252440345, guid: 69a7450fad2a8e542a6af39813c3463b,
+    type: 3}
+  finalPointPrefab: {fileID: 3576632409090646122, guid: a49392049f902964290104ea3081b5b6,
+    type: 3}
+  consumableLocationPrefab: {fileID: 4963616972977274679, guid: e2b3b7a9379d30643ad873af91401350,
+    type: 3}
+  enemyRespawnPrefab: {fileID: 7156041363461437343, guid: 0ad32d6c55b7871468d852929b18222a,
+    type: 3}
 --- !u!114 &6779864030852105010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,17 +76,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6779864030852105022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47e617cbb6bd9f74cb49c66bf5abcaee, type: 3}
+  m_Script: {fileID: 11500000, guid: c112e16077990ea4293fb3c7fb95e970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1232494458252440345, guid: 092e0f23676bf854fbb0fef24f13a6e0,
-    type: 3}
-  finalPointPrefab: {fileID: 3576632409090646122, guid: 23fe17702370e5d48865a0f94604d3df,
-    type: 3}
-  consumableLocationPrefab: {fileID: 4963616972977274679, guid: d68cfc20f4b5c154d8c508b6bab92fb9,
-    type: 3}
-  enemyRespawnPrefab: {fileID: 7156041363461437343, guid: 0cbf776a1f385da44ac24e38929d064b,
-    type: 3}
+  showDebug: 0
+  mazeMat1: {fileID: 2100000, guid: 5b7a1a0a75b5b9d46ae9b7fd7c59a86e, type: 2}
+  mazeMat2: {fileID: 2100000, guid: a2e74f475e4add34394c78743de92719, type: 2}
 --- !u!114 &6779864030852105012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6779864030852105022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
+  m_Script: {fileID: 11500000, guid: f626415a69c5bdb4e9589efc90e42e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1335
+    m_Bits: 4294967295
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -121,7 +121,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4ffaf1bc440de3e49b8b201a521a9718, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 237145046138b3840a9286b671049bfe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1

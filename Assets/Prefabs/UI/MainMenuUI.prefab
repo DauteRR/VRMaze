@@ -155,7 +155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 317173095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089df517cb702c14382fb29f583852cf, type: 3}
+  m_Script: {fileID: 11500000, guid: d6154f96fcab75d40874ef9d43550c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtonName: x
@@ -169,7 +169,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2821372671211426391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ce89d0fcca1f69478b9097554b9f0a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0add053a1ea2a5948837fa77c5256f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtonName: x
@@ -532,7 +532,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -736,18 +736,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2821372671312129810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartPlaying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2821372671312129805
@@ -773,7 +762,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2821372671312129815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089df517cb702c14382fb29f583852cf, type: 3}
+  m_Script: {fileID: 11500000, guid: d6154f96fcab75d40874ef9d43550c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtonName: x
@@ -787,7 +776,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
@@ -964,7 +953,7 @@ GameObject:
   - component: {fileID: 2821372671451236547}
   - component: {fileID: 2821372671451236546}
   - component: {fileID: 169115820}
-  - component: {fileID: 3716340528534406531}
+  - component: {fileID: 2607898462903740136}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: MainMenuUI
@@ -1047,7 +1036,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2821372671451236544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b7708cf5bdaa64eb55f5f8aee8b557, type: 3}
+  m_Script: {fileID: 11500000, guid: 3efaebfefdcd94a43943f55685a4a9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startButtonGameObject: {fileID: 2821372671312129815}
@@ -1055,7 +1044,7 @@ MonoBehaviour:
   nextButtonGameObject: {fileID: 317173095}
   mobileToggleGameObject: {fileID: 2821372671211426391}
   continuePlaying: 0
---- !u!114 &3716340528534406531
+--- !u!114 &2607898462903740136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1460,7 +1449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2821372673158543252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089df517cb702c14382fb29f583852cf, type: 3}
+  m_Script: {fileID: 11500000, guid: d6154f96fcab75d40874ef9d43550c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtonName: x
@@ -1474,7 +1463,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1

@@ -22,9 +22,9 @@ public class MazeConstructor : MonoBehaviour {
     /* Option for debug mode */
     public bool showDebug;
     /* Floor material */
-    [SerializeField] private Material mazeMat1;
+    public Material mazeMat1;
     /* Walls material */
-    [SerializeField] private Material mazeMat2;
+    public Material mazeMat2;
     /* Maze data */
     public MazeLocation[,] mazeData {
         get; private set;

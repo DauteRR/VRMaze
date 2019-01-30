@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
     private SphereCollider noiseCollider;
     /* Tells if the player makes noises or not */
     private bool inaudiblePlayer;
-
+    /* Current noise of the player */
     private float currentNoise;
 
     /* Lantern of the player */
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour {
     public Text shieldText;
 
     /* Amount of defeated enemies */
+    [HideInInspector]
     public int defeatedEnemies;
 
 

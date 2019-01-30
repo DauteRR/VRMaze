@@ -67,7 +67,8 @@ public class EnemyController : MonoBehaviour {
 
         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
         // Ignore collisions between noise enemy collider and player body collider
-        Physics.IgnoreCollision(playerGameObject.GetComponent<BoxCollider>(), GetComponent<SphereCollider>());
+        if (GetComponent<SphereCollider>() != null)
+            Physics.IgnoreCollision(playerGameObject.GetComponent<BoxCollider>(), GetComponent<SphereCollider>());
     }
 
     /*

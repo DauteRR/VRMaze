@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7458906749246357657}
   - component: {fileID: 3543025570787113782}
   - component: {fileID: 8838951394940473266}
-  - component: {fileID: 4219796584183149408}
   - component: {fileID: 1466469242026822550}
   - component: {fileID: 9015545535522562167}
+  - component: {fileID: 3078448120006663946}
   m_Layer: 0
   m_Name: Consumable_Shield
   m_TagString: Untagged
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7458906749248298585}
-  m_Mesh: {fileID: 4300000, guid: fa0a723e3534aca47bcf60641f2f3a8d, type: 3}
+  m_Mesh: {fileID: 4300000, guid: de0d8025277b822499eaf954d859e81e, type: 3}
 --- !u!23 &7458906749246357657
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86a04bc5e0b3bc8448538e10c9e15af7, type: 2}
+  - {fileID: 2100000, guid: 94fe11caca9e0d8419fa4ebff8ab0421, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,22 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Delegates: []
   delegates: []
---- !u!114 &4219796584183149408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7458906749248298585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9161359bf66688e459929d57cfbfbdbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionButtonName: square
-  duration: 2
-  pickedUp: 0
-  shieldToAdd: 25
 --- !u!114 &1466469242026822550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,9 +118,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7458906749248298585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b689fb3d95835fb489c801c23abe0ffc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3329add281d59634b838c6933e65e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionButtonName: square
+  duration: 2
+  pickedUp: 0
+  shieldToAdd: 25
 --- !u!82 &9015545535522562167
 AudioSource:
   m_ObjectHideFlags: 0
@@ -147,7 +135,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -233,3 +221,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3078448120006663946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458906749248298585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a161780aca64478dbd779d43a5819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

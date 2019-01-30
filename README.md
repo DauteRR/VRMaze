@@ -87,12 +87,12 @@ Hay tres tipos de enemigos:
 
 * Cogemos todos los collider en un radio
 * Nos quedamos con los que estén dentro de un cierto ángulo de visión
-* Y si no hay obstáculos en medio es que lo está viendo (Physics.Raycast)
+* Si no hay obstáculos en medio es que lo está viendo (Physics.Raycast)
 * Se diferencian los obstáculos(laberinto) y el jugador haciendo uso de capas
 
 ### Sistema de escucha
 
-* Cuando el jugador realiza una acción que conlleva un ruido se aumenta el volumen de un collider
+* Cuando el jugador realiza una acción que conlleva un ruido se aumenta el volumen de un collider esférico que lo envuelve
 * Los enemigos tienen un collider esférico que representa la distancia a la que oyen ruidos
 * Cuando ambos collider chocan el jugador es detectado
 
@@ -100,14 +100,14 @@ Hay tres tipos de enemigos:
 
 Para recoger los consumibles se ha de pulsar el botón cuadrado.
 
-Los consumibles aparecen en unos puntos determinados cada cierto tiempo (de 20 a 60 segundos).
+Los consumibles aparecen en unos puntos determinados (consumable locations) cada cierto tiempo (de 20 a 60 segundos).
 
 Existen 8 tipos de consumibles:
 * Vida: Aumenta la salud del jugador en 25 unidades (instantáneo)
 * Escudo: Aumenta el escudo del jugador en 20 unidades (instantáneo)
 * Pilas: Aumenta el uso de la linterna en 20 segundos (instantáneo)
-* Aumentar daño: Aumenta el daño de los proyectiles en 10 unidades durante 10 segundos
-* Jugador inaudible: No permite que los enemigos oigan al jugador durante 30 segundos
+* Aumentar daño: Aumenta el daño de los proyectiles en 10 unidades durante 15 segundos
+* Jugador inaudible: No permite que los enemigos oigan al jugador durante 20 segundos
 * Jugador invisible: No permite que los enemigos vean al jugador durante 20 segundos
 * Pista: Muestra una pista visual en la localización del punto final del laberinto durante 10 segundos
 * Visión de rayos x: Hace que las paredes del laberinto sean transparentes durante 10 segundos

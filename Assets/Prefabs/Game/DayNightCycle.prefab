@@ -75,7 +75,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.90182555, b: 0.83823526, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -111,30 +111,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3939837888166712980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eff0ad400294184495224be087b3abc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f3e2d579926ff74d8998eae1a4f53c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stars: {fileID: 3939837888556591417}
-  worldProbe: {fileID: 1232494458252440345, guid: 092e0f23676bf854fbb0fef24f13a6e0,
-    type: 3}
   nightDayColor:
     serializedVersion: 2
     key0: {r: 0.18431373, g: 0.39215687, b: 0.5372549, a: 1}
     key1: {r: 0.16078432, g: 0.5254902, b: 0.59607846, a: 1}
     key2: {r: 0.9411765, g: 0.5019608, b: 0.19215687, a: 0}
     key3: {r: 0.98039216, g: 0.99215686, b: 0.24705882, a: 0}
-    key4: {r: 0.99607843, g: 1, b: 0.7490196, a: 0}
-    key5: {r: 1, g: 1, b: 0.9647059, a: 0}
-    key6: {r: 1, g: 1, b: 1, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0.9810594, g: 0.9924905, b: 0.2684102, a: 0}
+    key5: {r: 0.99607843, g: 1, b: 0.7490196, a: 0}
+    key6: {r: 1, g: 1, b: 0.9647059, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
     ctime0: 0
     ctime1: 10023
     ctime2: 17348
-    ctime3: 22745
-    ctime4: 44525
-    ctime5: 55898
-    ctime6: 65535
-    ctime7: 0
+    ctime3: 27371
+    ctime4: 33924
+    ctime5: 55512
+    ctime6: 62644
+    ctime7: 65535
     atime0: 0
     atime1: 65535
     atime2: 0
@@ -144,12 +142,12 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 7
+    m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   maxIntensity: 1
   minIntensity: 0.5
   minPoint: -0.2
-  maxAmbient: 0
+  maxAmbient: 1
   minAmbient: 0
   minAmbientPoint: -0.2
   nightDayFogColor:
@@ -186,31 +184,31 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.008704842
-      inSlope: -0.006374527
-      outSlope: -0.006374527
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9979806
-      value: 0.0047787684
+      value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   fogScale: 1
-  dayAtmosphereThickness: 1.2
-  nightAtmosphereThickness: 1.4
-  dayRotateSpeed: {x: -2, y: 0, z: 0}
-  nightRotateSpeed: {x: -3, y: 0, z: 0}
-  skySpeed: 1
+  dayAtmosphereThickness: 0.4
+  nightAtmosphereThickness: 0.87
+  dayRotateSpeed: {x: 0, y: 0, z: 0}
+  nightRotateSpeed: {x: 0, y: 0, z: 0}
+  skySpeed: 10
 --- !u!1 &3939837888556591417
 GameObject:
   m_ObjectHideFlags: 0

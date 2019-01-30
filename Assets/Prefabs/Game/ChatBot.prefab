@@ -48,7 +48,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aa851515cd3747d6b3b3e461199a2ed, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,11 +137,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1022624262543771907}
-  - component: {fileID: 1022624262536645763}
-  - component: {fileID: 1022624263020062522}
   - component: {fileID: 1022624263020062523}
   - component: {fileID: 1022624263020062520}
-  - component: {fileID: 8583873871314542870}
+  - component: {fileID: 1022624263020062522}
+  - component: {fileID: 6882926234709837658}
   - component: {fileID: 7262725530753863211}
   m_Layer: 0
   m_Name: ChatBot
@@ -165,40 +164,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 235, z: 0}
---- !u!111 &1022624262536645763
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022624262543480035}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
---- !u!114 &1022624263020062522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022624262543480035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9308d51400aed49897f0ef7e83d11f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionButtonName: x
-  firstButtonGameObject: {fileID: 0}
-  secondButtonGameObject: {fileID: 0}
-  thirdButtonGameObject: {fileID: 0}
-  responseButtonText: {fileID: 0}
-  nextButtonGameObject: {fileID: 0}
-  prevButtonGameObject: {fileID: 0}
 --- !u!114 &1022624263020062523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +192,7 @@ CapsuleCollider:
   m_Height: 1.8443451
   m_Direction: 1
   m_Center: {x: -0.019456768, y: 0.92217255, z: 0.032427978}
---- !u!114 &8583873871314542870
+--- !u!114 &1022624263020062522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,9 +201,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1022624262543480035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebfe665897c13c84eb96eb515968b6c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 755f0637f3b6a124dad3d0486e6fbd1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6882926234709837658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022624262543480035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51594c5e305e8fd49aa5b68aeb9d26c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionButtonName: x
+  firstButtonGameObject: {fileID: 0}
+  secondButtonGameObject: {fileID: 0}
+  thirdButtonGameObject: {fileID: 0}
+  responseButtonText: {fileID: 0}
+  nextButtonGameObject: {fileID: 0}
+  prevButtonGameObject: {fileID: 0}
 --- !u!82 &7262725530753863211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -249,7 +233,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c886592fb329ed44a9a405234e5c58ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b885d3de8e92f94eb65a1e5bc786726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1

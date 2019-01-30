@@ -73,7 +73,7 @@ public class RespawnSystem : MonoBehaviour {
             }
         }
         amountOfConsumablesLocations = (int)(freePositions.Count * 0.1);
-        amountOfEnemyRespawns = (int)(freePositions.Count * 0.1);
+        //amountOfEnemyRespawns = (int)(freePositions.Count * 0.1);
     }
 
     /*

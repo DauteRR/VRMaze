@@ -196,19 +196,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 25926423721413187}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7485150779974384811, guid: 49550d4d39a98824d83ef35b715cbaac,
-          type: 3}
-        m_MethodName: OnFirstButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &5774784095819524128
@@ -234,10 +222,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 25926423721413182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089df517cb702c14382fb29f583852cf, type: 3}
+  m_Script: {fileID: 11500000, guid: d6154f96fcab75d40874ef9d43550c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionButtonName: x
+  actionButtonName: square
 --- !u!1 &25926424012067573
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,12 +320,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 25926424012067573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178228c01020c714aa81bab4ae4dc101, type: 3}
+  m_Script: {fileID: 11500000, guid: 739800cd36aba44e9b04ce977e5784bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeButtonGameObject: {fileID: 25926423721413182}
-  defeatedEnemiesButtonGameObject: {fileID: 6391400742932332610}
-  solvedMazesButtonGameObject: {fileID: 6391400742583354776}
+  ignoreReversedGraphics: 1
+  blockingObjects: 2
+  blockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &1594096769995002305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,14 +337,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 25926424012067573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739800cd36aba44e9b04ce977e5784bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 412b835af17f1024f9f856546761226a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 2
-  blockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  timeButtonGameObject: {fileID: 25926423721413182}
+  defeatedEnemiesButtonGameObject: {fileID: 6391400742932332610}
+  solvedMazesButtonGameObject: {fileID: 6391400742583354776}
 --- !u!1 &6391400741530071336
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,19 +618,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6391400742583354773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7485150779974384811, guid: 49550d4d39a98824d83ef35b715cbaac,
-          type: 3}
-        m_MethodName: OnFirstButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &6391400742583354775
@@ -668,10 +644,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6391400742583354776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089df517cb702c14382fb29f583852cf, type: 3}
+  m_Script: {fileID: 11500000, guid: d6154f96fcab75d40874ef9d43550c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionButtonName: x
+  actionButtonName: square
 --- !u!1 &6391400742932332610
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,19 +765,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6391400742932332639}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7485150779974384811, guid: 49550d4d39a98824d83ef35b715cbaac,
-          type: 3}
-        m_MethodName: OnFirstButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &6391400742932332609
@@ -827,7 +791,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6391400742932332610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 089df517cb702c14382fb29f583852cf, type: 3}
+  m_Script: {fileID: 11500000, guid: d6154f96fcab75d40874ef9d43550c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionButtonName: x
+  actionButtonName: square

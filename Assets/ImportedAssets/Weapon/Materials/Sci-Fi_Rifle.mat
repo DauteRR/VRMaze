@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sci-Fi_Rifle
-  m_Shader: {fileID: 4800000, guid: 02194ff69459f864c9a1d5e3db15b129, type: 3}
+  m_Shader: {fileID: 4800000, guid: aa247cff36986e248b9cec3e8e452e87, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
