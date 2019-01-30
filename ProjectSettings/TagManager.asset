@@ -12,6 +12,8 @@ TagManager:
   - MainMenuUI
   - ResultsUI
   - ChatBotUI
+  - ConsumableLocation
+  - EnemyRespawn
   layers:
   - Default
   - TransparentFX

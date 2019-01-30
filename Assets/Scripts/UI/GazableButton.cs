@@ -14,7 +14,6 @@ public class GazableButton : Gazable {
      * clicks the button
      */
     public override void OnPointerClick() {
-        Debug.Log("Clicked " + gameObject.name);
         //Trigger click
         //GetComponent<Button>().onClick.Invoke();
     }

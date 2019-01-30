@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour {
         Health.OnHealthCollect += AddHealth;
         Shield.OnShieldCollect += AddShield;
         InaudiblePlayer.OnInaudiblePlayerCollect += SetInaudiblePlayer;
-
         EnemyController.OnEnemyDeath += (enemy) => defeatedEnemies++;
     }
 
@@ -166,5 +165,14 @@ public class PlayerController : MonoBehaviour {
 
         shieldText.text = shield + "";
         healthText.text = health + "";
+    }
+
+    /*
+     * Destroys the object in a secure way
+     */
+    private void OnDestroy() {
+        Health.OnHealthCollect -= AddHealth;
+        Shield.OnShieldCollect -= AddShield;
+        InaudiblePlayer.OnInaudiblePlayerCollect -= SetInaudiblePlayer;
     }
 }

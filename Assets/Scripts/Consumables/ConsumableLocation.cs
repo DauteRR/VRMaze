@@ -31,21 +31,20 @@ public class ConsumableLocation : MonoBehaviour {
         if (!currentConsumable.pickedUp) {
             return;
         }
-        // TODO add consumable to player active consumables
         consumable.GetComponent<MeshRenderer>().enabled = false;
         consumable.GetComponent<Collider>().enabled = false;
-        GenerateNewConsumableDelayed();
+        StartCoroutine(GenerateNewConsumableDelayed());
     }
 
     /*
      * Generates a new consumable after a random period of time
      */
-    private void GenerateNewConsumableDelayed() {
-        float timeToWait = Random.Range(
+    private IEnumerator GenerateNewConsumableDelayed() {
+        yield return new WaitForSeconds(Random.Range(
             minWaitForNewConsumable,
             maxWaitForNewConsumable
-        );
-        Invoke("GenerateNewConsumable", timeToWait);
+        ));
+        GenerateNewConsumable();
     }
 
     /*
@@ -59,5 +58,13 @@ public class ConsumableLocation : MonoBehaviour {
             consumablePosition, 
             selectedConsumable.transform.rotation
         ).GetComponent<Consumable>();
+    }
+
+    /*
+     * Destroys the object in a secure way
+     */
+    private void OnDestroy() {
+        StopAllCoroutines();
+        Consumable.OnConsumablePick -= OnConsumablePick;
     }
 }

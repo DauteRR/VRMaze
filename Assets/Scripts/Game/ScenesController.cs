@@ -73,6 +73,7 @@ public class ScenesController : MonoBehaviour {
         totalAmountOfEnemiesDefeated += 
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().defeatedEnemies;
         lastMazeWasSolved = solved;
+
         SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
     }
 

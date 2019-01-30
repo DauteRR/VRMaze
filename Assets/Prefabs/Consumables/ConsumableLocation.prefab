@@ -4719,7 +4719,7 @@ GameObject:
   - component: {fileID: 2683992964135016366}
   m_Layer: 0
   m_Name: ConsumableLocation
-  m_TagString: Untagged
+  m_TagString: ConsumableLocation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4762,8 +4762,8 @@ MonoBehaviour:
   - {fileID: 1859242788170637739, guid: f18f72cdc8dcb69428e515bda6ae0206, type: 3}
   - {fileID: 7458906749248298585, guid: 624f832b3cb9477458ef7be280a1f367, type: 3}
   - {fileID: 8252117618646972853, guid: f921670d48d10ea49a7600f9561d5327, type: 3}
-  minWaitForNewConsumable: 20
-  maxWaitForNewConsumable: 60
+  minWaitForNewConsumable: 100
+  maxWaitForNewConsumable: 100
 --- !u!1 &8761426664344981091
 GameObject:
   m_ObjectHideFlags: 0
