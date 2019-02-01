@@ -101,8 +101,10 @@ public class MazeConstructor : MonoBehaviour {
         MeshRenderer meshRenderer = mazeGameObject.AddComponent<MeshRenderer>();
         meshRenderer.materials = new Material[2] { mazeMat1, mazeMat2 };
 
-        // We assigne the "Maze" layer to the maze game object
+        // We assign the "Maze" layer to the maze game object
         mazeGameObject.layer = 10;
+        // We set the static flag to true
+        mazeGameObject.isStatic = true;
     }
 
 }

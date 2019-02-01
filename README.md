@@ -1,34 +1,47 @@
-# Virtual Reality Maze
-## Autores
+# Virtual Reality Game
+## Authors
 
-* [carlosdg](https://github.com/carlosdg)
-* [DauteRR](https://github.com/DauteRR)
+* Carlos Domínguez García [carlosdg](https://github.com/carlosdg)
+* Daute Rodríguez Rodríguez [DauteRR](https://github.com/DauteRR)
 
-## Descripción
+## Description
 
-Como todo videojuego el objetivo principal es entretener al jugador.
+As every video game, the main goal is the players entertainment. In our game, the player have to scape from procedurally generated mazes with enemies. The player can shoot and use consumables to ease the fights and complete the mazes. Besides, we have included a day night cycle to difficult the players objective.
 
-En nuestro caso el jugador tiene que escapar de laberintos generados proceduralmente que están llenos de enemigos.
+### Scenes
+The game is conformed by two scenes:
+* Main menu scene: The player can start a new game (sucession of mazes), talk with a chatbot to resolve doubts and see the stats.
+<p align="center">
+    <img src="Docs/Images/MainMenuScene.gif" width="600" height="314"/>
+</p>
+* Maze scene: The player have to survive and reach the final point of the maze.  
+<p align="center">
+    <img src="Docs/Images/MazeScene.png" width="600" height="314"/>
+</p>
+<p align="center">
+    <img src="Docs/Images/DayNightCycle.gif" width="600" height="314"/>
+</p>
+<p align="center">
+    <img src="Docs/Images/FinalPoint.gif" width="600" height="314"/>
+</p>
 
-El jugador puede disparar y usar consumibles para facilitar las peleas contra los enemigos o esquivarlos.
+When the player solves a maze the main menu changes its appearance to note the player the possibility of continue the game and its stats are updated:
+<p align="center">
+    <img src="Docs/Images/MainMenuChange.gif" width="600" height="314"/>
+</p>
 
-El juego cuenta con dos escenas:
-* Escena de laberinto: En la escena del laberinto el jugador deberá sobrevivir y llegar al punto final, hemos implementado un ciclo día-noche.
-* Escena de menú principal: En la escena del menú principal el jugador puede iniciar una nueva partida (sucesión de laberintos), interactuar con un chatbot para resolver dudas y comprobar sus estadísticas.
+## Virtual reality recommendations
 
+Virtual reality recommendations that we have followed are:
+* The user has total control of the player movement inside the game
+* Use of a reticle as a visual aid
+* Constant velocity of the player movements
+* Included visual effects and sounds
+* The distance between the player and the user interfaces is optimal (3m)
 
-## Recomendaciones sobre Realidad virtual
+## Use considerations
 
-Las recomendaciones sobre aplicaciones de RV que hemos seguido son:
-* El usuario tiene control total sobre el movimiento dentro del juego
-* Hacemos uso de una retícula como punto de referencia
-* Mantenemos una velocidad constante para no generar sensación de fatiga ni mareo
-* Hemos incluido sonidos y efectos visuales de confirmación a los elementos interactuables
-* La distancia al usuario de las interfaces gráficas y del HUD es la óptima (3m)
-
-##  Cuestiones importantes de uso
-
-Para poder jugar se necesita un mando de PlayStation 4 o mapear los botones en unity para poder utilizar otro tipo de mando:
+To be able to play you will need a PlayStation 4 controller or change the required buttons on unity.
 
 | Botón 	| PC 	                | Mobile 	                |
 |:------:	|:--:	                |--------	                |
@@ -47,131 +60,186 @@ Para poder jugar se necesita un mando de PlayStation 4 o mapear los botones en u
 |     PS   	| joystick button 12    |   joystick button 12     	|
 |     PAD   | joystick button 13    |   joystick button 8     	|
 
-## Jugador
+## Player
 
-El jugador dispone de:
-* Nivel de salud (Inicialmente 100 unidades)
-* Nivel de escudo (Inicialmente 0 unidades)
-* Un arma (Sus proyectiles hacen 20 de daño a los enemigos)
-* Una linterna a pilas (Inicialmente tiene 20 segundos)
+### Player state
 
+* Health (100 units on start)
+* Nivel de escudo (0 units on start)
+* Weapon (shots that inflict 20 units of damage to enemies)
+* Lantern (20 second of battery on start)
 
-Los controles del jugador son los siguientes:
-* Se puede mover usando el joystick izquierdo
-* Puede rotar usando L2 y R2
-* Puede interactuar con elementos de las interfaces gráficas con el botón equis
-* Puede interactuar con elementos del juego con el botón cuadrado
-* Cuando el jugador esté en el laberinto, si pulsa el botón PS saldrá al menú principal
-* Pulsando L3 el jugador apagará/encenderá su linterna
-* Pulsando R1 el jugador disparará su arma
+<p align="center">
+    <img src="Docs/Images/PlayerView.png" width="600" height="314"/>
+</p>
 
-## Enemigos
+When the player dies (health reaches 0), the main menu returns to its initial layout, if the player starts a new game the stats are resetted.
 
-Los enemigos aparecen en ciertas posiciones predeterminadas tras haber transcurrido entre 5 y 15 segundos.
+During the last seconds of lantern battery, the light will flash on an intermittent way
+<p align="center">
+    <img src="Docs/Images/LastSecondsOfLantern.gif" width="600" height="314"/>
+</p>
 
-Estos puntos pueden ser desactivados por el jugador con el botón cuadrado, cuando están desactivados no aparecen enemigos. Los puntos permanecen desactivados entre 10 y 30 segundos.
+### Controls
 
-Cada enemigo tiene tres estados posibles:
-* Idle
-* Caminando
-* Atacando
-* Muerto
-
-Hay tres tipos de enemigos:
-* Ratones, son capaces de oír al jugador. Inflingen 15 de daño por golpe, tienen 80 de vida y una velocidad de 2,2
-* Esqueletos, son capaces de ver al jugador. Inflingen 20 de daño por golpe, tienen 100 de vida y una velocidad de 1,7
-* Caballeros, son capaces de ver y oír al jugador. Inflingen 30 de daño por golpe, tienen 150 de vida y una velocidad de 1,3
+| Action                     | Buttons        | Gif                                                                                     |
+| :------:	                 | :--:           | :---:                                                                                   |
+| Movement                   | Left joystick  | <img src="Docs/Images/PlayerMove.gif" width="300" height="157"/>                        |
+| Rotation                   | L2, R2         | <img src="Docs/Images/PlayerRotation.gif" width="300" height="157"/>                    |
+| UI elements interactions   | x              | <img src="Docs/Images/PlayerInteractionWithUIElements.gif" width="300" height="157"/>   |
+| Game elements interactions | square         | <img src="Docs/Images/PlayerInteractionWithGameElements.gif" width="300" height="157"/> |
+| Exit maze                  | PS             | <img src="Docs/Images/PlayerLeavingMaze.gif" width="300" height="157"/>                 |
+| Shoot                      | R1             | <img src="Docs/Images/PlayerShooting.gif" width="300" height="157"/>                    |
+| Lantern                    | L3             | <img src="Docs/Images/PlayerUsingLantern.gif" width="300" height="157"/>                |
 
 
-### Sistema de visión
+## Enemies
 
-* Cogemos todos los collider en un radio
-* Nos quedamos con los que estén dentro de un cierto ángulo de visión
-* Si no hay obstáculos en medio es que lo está viendo (Physics.Raycast)
-* Se diferencian los obstáculos(laberinto) y el jugador haciendo uso de capas
+There are three types of enemies:
 
-### Sistema de escucha
+|    Type     | Damage | Health  | Speed     | Abilities                                        |
+|  :------:	  | :--:   | :---:   |   :---:   | :---:                                            |
+|  Mouse   	  |  15    |   80    |    2.2    | Hearing System (7m)                              |
+|  Skeleton   |  20    |  100    |    1.7    | Vision System (7m, 140°)                         |
+|  Knight     |  30    |  150    |    1.3    | Hearing System (5m) and Vision System (5m, 110°) |
 
-* Cuando el jugador realiza una acción que conlleva un ruido se aumenta el volumen de un collider esférico que lo envuelve
-* Los enemigos tienen un collider esférico que representa la distancia a la que oyen ruidos
-* Cuando ambos collider chocan el jugador es detectado
+<p align="center">
+    <img src="Docs/Images/Enemies.gif" width="600" height="314"/>
+</p>
 
-## Consumibles
+The enemies appears at specific positions (enemy respawns) after 5 to 15 seconds.
 
-Para recoger los consumibles se ha de pulsar el botón cuadrado.
+<p align="center">
+    <img src="Docs/Images/EnemyRespawn.gif" width="600" height="314"/>
+</p>
 
-Los consumibles aparecen en unos puntos determinados (consumable locations) cada cierto tiempo (de 20 a 60 segundos).
+These positions can been deactivated by the player with the square button, when they are deactivated the enemies can't respawn. The respawns remain deactivated between 10 and 30 seconds.
 
-Existen 8 tipos de consumibles:
-* Vida: Aumenta la salud del jugador en 25 unidades (instantáneo)
-* Escudo: Aumenta el escudo del jugador en 20 unidades (instantáneo)
-* Pilas: Aumenta el uso de la linterna en 20 segundos (instantáneo)
-* Aumentar daño: Aumenta el daño de los proyectiles en 10 unidades durante 15 segundos
-* Jugador inaudible: No permite que los enemigos oigan al jugador durante 20 segundos
-* Jugador invisible: No permite que los enemigos vean al jugador durante 20 segundos
-* Pista: Muestra una pista visual en la localización del punto final del laberinto durante 10 segundos
-* Visión de rayos x: Hace que las paredes del laberinto sean transparentes durante 10 segundos
+<p align="center">
+    <img src="Docs/Images/EnemyRespawnDeactivation.gif" width="600" height="314"/>
+</p>
 
-## Dificultades y soluciones
+### Enemy states
 
-Dificultades:
-* La primera y mayor fue el trabajo colaborativo, no pudimos trabajar cómodamente
-* Ausencia de assets gratuitos
-* Que Unity incluya tantas funcionalidades es un arma de doble filo, puedes hacer cosas impresionantes pero solo si sabes bien como. Debido a nuestra inexperiencia ésto jugó en nuestra contra
-* La mayoría de tareas que quisimos realizar llevaron mucho tiempo
-* Ausencia de Hardware (cardboard y mando de ps4)
+| State     | Gif                                                                  |
+| :------:  | :---:                                                                |
+| Idle      | <img src="Docs/Images/EnemyIdle.gif" width="300" height="157"/>      |
+| Walking   | <img src="Docs/Images/EnemyWalking.gif" width="300" height="157"/>   |
+| Attacking | <img src="Docs/Images/EnemyAttacking.gif" width="300" height="157"/> |
+| Dead      | <img src="Docs/Images/EnemyDying.gif" width="300" height="157"/>     |
 
-¿Cómo solventamos las dificultades:
-* Haciendo un uso intensivo de la documentación
-* Haciendo un uso intensivo de tutoriales en plataformas como Youtube
-* Resolviendo mucho de los problemas leyendo en foros a usuarios con circunstancias parecidas
-* Modelamos 7 de los consumibles desde cero usando Blender (modelos muy simples)
-* Nos creamos nuestros assets a medida (filtro de partículas, sonidos, texturas, materiales ….)
+### Vision system
 
-## Distribución de tareas:
-* Generación del laberinto: Daute
-* Consumibles: Carlos y Daute
+The enemies are able to see within a certain angle and a maximum distance. To achieve that we used physics raycasting to determine if the player is in the field of view of the enemy without obstacles between them.
+
+<p align="center">
+    <img src="Docs/Images/VisionSystem.gif" width="600" height="314"/>
+</p>
+
+### Hearing system
+
+When the player makes a noise, a sphere collider increases its radius representing the distance that the noise travels. The enemies has also a sphere collider that represents its hearing capacity. When these two colliders collides, the enemy detects the player.
+
+#### Player actions that makes noises
+
+* Walking
+* Shooting
+* Turning on/off the lantern
+
+<p align="center">
+    <img src="Docs/Images/HearingSystem.gif" width="600" height="314"/>
+</p>
+
+## Consumables
+
+Consumables are pickable objects that aid the player, you can find them at some specific points of the generated mazes (consumable locations), they respawn every 20 to 60 seconds.
+
+<p align="center">
+    <img src="Docs/Images/ConsumableLocation.gif" width="600" height="314"/>
+</p>
+
+| Type             | Effect                                                               | Gif |
+| :---:            | :------:                                                             | :--:|
+| Health           | Increases player's health in 25 units instantly                      | <img src="Docs/Images/Health.gif" width="300" height="157"/>          |
+| Shield           | Increases player's shield in 20 units instantly                      | <img src="Docs/Images/Shield.gif" width="300" height="157"/>          |
+| Battery          | Increases lantern's battery in 20 seconds instantly                  | <img src="Docs/Images/Battery.gif" width="300" height="157"/>         |
+| Increase damage  | Increases shots damage in 10 units during 15 seconds                 | <img src="Docs/Images/IncreaseDamage.gif" width="300" height="157"/>  |
+| Inaudible player | The enemies can't hear the player during 20 seconds                  | <img src="Docs/Images/InaudiblePlayer.gif" width="300" height="157"/> |
+| Invisible player | The enemies can't see the player during 20 seconds                   | <img src="Docs/Images/InvisiblePlayer.gif" width="300" height="157"/> |
+| Hint             | Shows a visual hint in the final point of the maze during 10 seconds | <img src="Docs/Images/Hint.gif" width="300" height="157"/>            |
+| X rays vision    | Turns the maze walls transparent during 10 seconds                   | <img src="Docs/Images/XRaysVision.gif" width="300" height="157"/>     |
+
+## Physics
+
+| Game object          | Collider type                        |
+| :----:               | :------                              |
+| Maze                 | Static collider                      |
+| Player body          | Kinematic Rigidbody Trigger Collider |
+| Player noise sphere  | Kinematic Rigidbody Trigger Collider |
+| Shots                | Rigidbody Trigger Collider           |
+| Enemy body           | Kinematic Rigidbody Collider         |
+| Enemy weapon         | Kinematic Rigidbody Trigger Collider |
+| Enemy hearing sphere | Kinematic Rigidbody Trigger Collider |
+
+## Issues during the development
+
+### Difficulties
+* Colaboratory work with unity
+* Lack of free assets
+* Complexity of unity
+* Lack of time
+* Lack of hardware (cardboard and ps4 controller)
+
+### Solutions
+* Using the scripting documentation
+* Using tutorials
+* Reading posts of people with similar problems
+* Creating our own consumables models, particle systems, materials ...
+
+## Tasks distribution:
+* Maze generation: Daute
+* Consumables: Carlos y Daute
     * Scripting: Carlos
-    * Modelado: Daute
-* Ciclo día noche: Carlos
-* Detección de daño entre jugador y enemigos: Daute
-* Búsqueda de assets: Carlos
-* Desarrollo del controlador de jugador: Daute
-* Sistema de reaparición: Carlos y Daute
-    * Desarrollo del spawn system: Carlos
-    * Desarrollo de enemy respawn y consumable location: Daute
-* Desarrollo de sistemas de visión y audición de los enemigos: Carlos
-* Desarrollo del controlador de enemigos: Daute
-* Desarrollo de chatbot: Carlos
-* Creación de interfaces: Carlos
+    * Modeling: Daute
+* Day night cycle: Carlos
+* Damage detection: Daute
+* Assets search: Carlos
+* Player controller development: Daute
+* Spawn system: Carlos y Daute
+    * Spawn system development: Carlos
+    * Enemy respawn and consumable location development: Daute
+* Enemies hearing system and vision system development: Carlos
+* Enemy controller development: Daute
+* Chatbot creation: Carlos
+* User interfaces creation: Carlos
 
-## Assets externos utilizados
-* GoogleVR: para hacer el proyecto de RV con las cardboard
-* ApiAiSDK: para el chatbot usando Dialogflow
-* NavMeshComponents: para el movimiento de los enemigos
-* DayNightCycle:
-* Enemigo esqueleto
-* Enemigo caballero
-* Enemigo ratón
-* Modelo del chatbot(robot)
-* Modelo del consumible escudo
-* Materiales para los disparos
-* Arma del jugador
+## External assets
+* GoogleVR: needed for VR compatibility
+* ApiAiSDK: needed for the chatbot creatiom
+* NavMeshComponents: needed for enemies movements
+* DayNightCycle
+* Skeleton enemy
+* Knight enemy
+* Mouse enemy
+* Robot model
+* Shield consumable model
+* Shots materials
+* Player weapon model
 
-## Ejecución
+## Execution
 
 <p align="center">
-    <img src="Docs/1.gif" width="600" height="314"/>
+    <img src="Docs/Images/Execution1.gif" width="600" height="314"/>
 </p>
 <p align="center">
-    <img src="Docs/2.gif" width="600" height="314"/>
+    <img src="Docs/Images/Execution2.gif" width="600" height="314"/>
 </p>
 <p align="center">
-    <img src="Docs/3.gif" width="600" height="314"/>
+    <img src="Docs/Images/Execution3.gif" width="600" height="314"/>
 </p>
 
 
-## Referencias
+## References
 * [VR Player Movement](https://www.youtube.com/watch?v=UBowqGbZ9a4&feature=youtu.be)
 * [Procedural generation of mazes](https://www.youtube.com/watch?v=gXpi1czz5NA)
 * [Enemy wandering system](https://www.youtube.com/watch?v=gXpi1czz5NA)

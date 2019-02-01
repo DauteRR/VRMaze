@@ -99,10 +99,14 @@ public class PlayerController : MonoBehaviour {
         controller.Move(velocity * Time.deltaTime);
 
         // Noise
-        noiseCollider.radius = (isMoving) ? 5 : 1;
-        noiseCollider.radius += (lantern.isOn) ? 1 : 0;
-        noiseCollider.radius += currentNoise;
-        noiseCollider.radius = (inaudiblePlayer) ? 0 : noiseCollider.radius;
+        if (!inaudiblePlayer) {
+            noiseCollider.radius = (isMoving) ? 5 : 1;
+            noiseCollider.radius += (lantern.isOn) ? 1 : 0;
+            noiseCollider.radius += currentNoise;
+        } else {
+            StopAllCoroutines();
+            noiseCollider.radius = 0;
+        }
 
         // Rotation
         if (Input.GetButton(InputController.GetPS4ButtonName("R2"))) {
