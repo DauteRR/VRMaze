@@ -1,4 +1,4 @@
-# Virtual Reality Game
+# Virtual Reality Maze
 ## Authors
 
 * Carlos Domínguez García [carlosdg](https://github.com/carlosdg)
